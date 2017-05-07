@@ -1,0 +1,47 @@
+#!/usr/bin/zsh
+# for mememacs
+if [[ "$TERM" == "dumb" ]]
+then
+    unsetopt zle
+    unsetopt prompt_cr
+    unsetopt prompt_subst
+    unfunction precmd
+    unfunction preexec
+    PS1='$ '
+    exit 0
+fi
+
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=100000
+setopt appendhistory autocd beep extendedglob nomatch notify
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle :compinstall filename '/home/chris/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+PROMPT='%F{white}%n%f@%F{yellow}%m%f %F{cyan}%1~%f %# '
+RPROMPT='[%F{yellow}%?%f]'
+PATH="$PATH:/home/chris/.bin:/home/chris/.local/bin:/home/chris/.cabal/bin:/usr/lib64/llvm/4/bin"
+EDITOR=emacsclient
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+alias svim="sudo -E vim"
+alias ls="ls --color=auto"
+alias wpaplz="sudo rc-service wpa_supplicant restart"
+alias cbg="feh --bg-fill --randomize ~/Wallpapers"
+# alias pbpst='function _pbpst() { curl -F c=@$1 https://ptpb.pw; };_pbpst'
+alias poof='ping -c5 google.com'
+alias wipa='watch -n0.2 ip a'
+alias fortune='fortune -a'
+alias nmplz="sudo rc-service NetworkManager restart"
+#alias -g vim="nvim"
+alias ixio="curl -F 'f:1=<-' ix.io"
+alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
+alias e="emacsclient -nw"

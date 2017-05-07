@@ -1,0 +1,27 @@
+#! /bin/sh
+
+sxhkd &
+panel &
+#compton --config="/home/chris/.config/compton/compton.conf" &
+conky &
+bspc config border_width         3
+bspc config window_gap          10
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config focus_by_distance    true
+bspc config history_aware_focus  true
+bspc config focus_follows_pointer true
+
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+/usr/lib/notify-osd/notify-osd &
+emacs --daemon &
+setxkbmap gb -option compose:menu
+xset -dpms -s noblank
+export _JAVA_AWT_WM_NONREPARENTING=1
+xset r rate 175 100
+xmodmap /home/chris/.Xmodmap
+feh --bg-fill --randomize /home/chris/Wallpapers
+xrdb /home/chris/.Xresources

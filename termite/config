@@ -1,0 +1,185 @@
+[options]
+#font = Consolas for Powerline 17
+#font = PragmataProMono, Awesome 13
+#font = Dina 14
+#font = Source Code Pro for Powerline 15
+#font = Noto Sans
+#font = Liberation Mono 10
+font = Symbol Neu 10
+font = Symbola 10
+font = Noto Emoji 10
+font = DejaVu Sans Mono 10
+#font = Hack 10
+
+[colors]
+## Gruvbox theme
+
+# hard contrast bg
+#background = #1d2021
+# normal contrast bg
+background = #282828
+# soft contrast bg
+#background = #32302f
+foreground = #ebdbb2
+foreground_bold = #ebdbb2
+
+# dark0 + gray
+color0 = #282828
+color8 = #928374
+
+# neutral_red + bright_red
+color1 = #cc241d
+color9 = #fb4934
+
+# neutral_green + bright_green
+color2 = #98971a
+color10 = #b8bb26
+
+# neutral_yellow + bright_yellow
+color3 = #d79921
+color11 = #fabd2f
+
+# neutral_blue + bright_blue
+color4 = #458588
+color12 = #83a598
+
+# neutral_purple + bright_purple
+color5 = #b16286
+color13 = #d3869b
+
+# neutral_aqua + faded_aqua
+color6 = #689d6a
+color14 = #8ec07c
+
+# light4 + light1
+color7 = #a89984
+color15 = #ebdbb2
+
+## End Gruvbox
+
+## Testing zenburn theme
+# special
+#foreground      = #dcdccc
+#foreground_bold = #dcdccc
+#cursor          = #dcdccc
+#background      = #3f3f3f
+#
+## black
+#color0  = #3f3f3f
+#color8  = #666666
+#
+## red
+#color1  = #9e1828
+#color9  = #cf6171
+#
+## green
+#color2  = #aece92
+#color10 = #c5f779
+#
+## yellow
+#color3  = #968a38
+#color11 = #fff796
+#
+## blue
+#color4  = #616191
+#color12 = #4186be
+#
+## magenta
+#color5  = #963c59
+#color13 = #cf9ebe
+#
+## cyan
+#color6  = #418179
+#color14 = #71bebe
+#
+## white
+#color7  = #bebebe
+#color15 = #ffffff
+
+# 20% background transparency (requires a compositor)
+#background = rgba(63, 63, 63, 0.8)
+
+# if unset, will reverse foreground and background
+#highlight = #2f2f2f
+
+[hints]
+#font = Dejavu Sans Mono 12
+foreground = #dcdccc
+background = #3f3f3f
+active_foreground = #e68080
+active_background = #3f3f3f
+padding = 2
+border = #3f3f3f
+border_width = 0.5
+roundness = 2.0
+
+#   #foreground = #d8dad8
+#   foreground = #ffffff
+#   foreground_bold = #d8dad8
+#   foreground_dim = #d8dad8
+#   #background = #ededed
+#   background = rgba(29,31,33,0.90)
+#   #background = rgba(29,31,33,1)
+#   #background = #1d1f21
+#   cursor = #aeafad
+#
+## if unset, will reverse foreground and background
+##   highlight = #d6d6d6
+#
+##   # colors from color0 to color254 can be set
+##   # Black + Grey
+#   color0 = #1d1f21
+#   color8 = #666699
+##   
+##   # Red + Bright Red
+#   color1 = #ff6666
+#   color9 = #ff1a1a
+##   
+##   # Green + Bright Green
+#   color2 = #4dff4d
+#   color10 = #33cc33
+##   
+##   # Yellow (Orange) + Bright Yellow (Yellow)
+#   color3 = #ff9900
+#   color11 = #ffff00
+##   
+##   # Blue + Bright Blue
+#   color4 = #3366ff
+#   color12 = #6699ff
+##   
+##   # Magenta (Purple) + Bright Magenta
+#   color5 = #ff4dd2
+#   color13 = #ff66ff
+##   
+##   # Cyan (Aqua) + Bright Cyan
+#   color6 = #2b6651
+#   color14 = #8abeb7
+##   
+##   # Light Grey (Selection) + White (Current Line)
+#   color7 = #d9d9d9
+#   color15 = #ffffff
+#
+## Experimental Light Colour Scheme
+#
+##foreground = #000000
+##background = #f0f0f0
+##background = #e4e4e4
+#
+#color1 = #d80000
+#color2 = #66b600
+#color3 = #ffaf00
+#color4 = #0000af
+#color5 = #d80050
+#color9 = #f47300
+#color10 = #66b600
+#color11 = #ddb800
+#color13 = #d80050
+#color14 = #1177dd
+#color15 = #f0f0f0
+
+#cursor = #ffffff
+
+[hints]
+font = DejaVu Sans Mono 10
+
+# vim: ft=dosni cms=#%s

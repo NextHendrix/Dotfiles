@@ -1,0 +1,4 @@
+setxkbmap gb -option compose:menu
+xset r rate 200 100
+xmodmap ~/.Xmodmap
+exec xmonad
