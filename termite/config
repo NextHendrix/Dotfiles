@@ -8,7 +8,8 @@
 font = Symbol Neu 10
 font = Symbola 10
 font = Noto Emoji 10
-font = DejaVu Sans Mono 10
+#font = DejaVu Sans Mono 10
+font = Fira Mono 10
 #font = Hack 10
 
 [colors]

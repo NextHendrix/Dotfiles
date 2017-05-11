@@ -95,6 +95,10 @@
 (add-hook 'haskell-mode-hook (lambda () (hindent-mode 1)))
 (add-hook 'haskell-mode-hook (lambda () (evil-mode 1)))
 
+;; Org Mode
+(require 'org)
+(setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+
 ;; Appendages
 (load custom-file)
 

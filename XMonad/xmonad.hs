@@ -4,18 +4,24 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.EZConfig
 import XMonad.Layout.NoBorders (smartBorders)
+import qualified XMonad.Layout.BinarySpacePartition as BSP
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import qualified XMonad.StackSet as W
+import qualified XMonad.Actions.Navigation2D as N
 import System.IO
 
 main = do
   xmproc <- spawnPipe "/usr/bin/xmobar /home/chris/.xmobarrc"
   xmonad $
-    docks $
+    N.navigation2DP def ("k", "h", "j", "l")
+                        [("M-", N.windowGo),
+                         ("M-S-", N.windowSwap)]
+                        False
+    $ docks $
     def
     { manageHook = manageDocks <+> manageHook def
-    , layoutHook = smartBorders (avoidStruts $ layoutHook def)
+    , layoutHook = smartBorders (avoidStruts $ myLayout)
     , logHook =
         dynamicLogWithPP
           xmobarPP
@@ -23,7 +29,7 @@ main = do
           , ppTitle = xmobarColor "green" "" . shorten 50
           }
     , modMask = mod4Mask -- use windows key
-    , terminal = "termite"
+    , terminal = myTerm
     , keys = myKeys
     , workspaces = myWorkspaces
     } --`additionalKeys`
@@ -36,6 +42,8 @@ main = do
   --  , ( (shiftMask .|. mod4Mask, xK_e)
   --    , spawn "xmonad --recompile && xmonad --restart")
   --  ]
+
+myLayout = BSP.emptyBSP ||| Full
 launcherConfig = def
   { font = "xft:DejaVu Sans Mono:pixelsize=11:antialias=true,xft:FontAwesome:pixelsize=11"
   , height = 15
@@ -73,18 +81,18 @@ myKeys conf = mkKeymap conf $
   , ("M-S-7", windows $ W.shift "7")
   , ("M-S-8", windows $ W.shift "8")
   , ("M-S-9", windows $ W.shift "9")
-  , ("M-k", windows $ W.focusUp)
-  , ("M-j", windows $ W.focusDown)
-  , ("M-S-k", windows $ W.swapUp)
-  , ("M-S-j", windows $ W.swapDown)
-  , ("M-l", sendMessage Shrink)
-  , ("M-h", sendMessage Expand)
+  , ("M-r", sendMessage BSP.Rotate)
+  , ("M-C-h", sendMessage $ BSP.ExpandTowards L)
+  , ("M-C-j", sendMessage $ BSP.ExpandTowards D)
+  , ("M-C-k", sendMessage $ BSP.ExpandTowards U)
+  , ("M-C-l", sendMessage $ BSP.ExpandTowards R)
   ]
 
 editor = "emacsclient -c"
 myWorkspaces = [ "Control Centre"
                , "Home"
                , "Emacs"
-               ] ++ (map show [3..9])
+               ] ++ (fmap show [3..9])
                
 browser = "chromium"
+myTerm = "urxvt"
