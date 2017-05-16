@@ -5,6 +5,7 @@ import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.EZConfig
 import XMonad.Layout.NoBorders (smartBorders)
 import qualified XMonad.Layout.BinarySpacePartition as BSP
+import qualified XMonad.Layout.Spacing as S
 import XMonad.Prompt
 import XMonad.Prompt.Shell
 import qualified XMonad.StackSet as W
@@ -14,11 +15,12 @@ import System.IO
 main = do
   xmproc <- spawnPipe "/usr/bin/xmobar /home/chris/.xmobarrc"
   xmonad $
-    N.navigation2DP def ("k", "h", "j", "l")
-                        [("M-", N.windowGo),
-                         ("M-S-", N.windowSwap)]
-                        False
-    $ docks $
+    N.navigation2DP
+      def
+      ("k", "h", "j", "l")
+      [("M-", N.windowGo), ("M-S-", N.windowSwap)]
+      False $
+    docks $
     def
     { manageHook = manageDocks <+> manageHook def
     , layoutHook = smartBorders (avoidStruts $ myLayout)
@@ -32,27 +34,20 @@ main = do
     , terminal = myTerm
     , keys = myKeys
     , workspaces = myWorkspaces
-    } --`additionalKeys`
-  --  [ ((mod4Mask, xK_Return), spawn "termite")
-  --  , ((controlMask, xK_Print), spawn "scrot -q100 -s")
-  --  , ((0, xK_Print), spawn "scrot -q100")
-  --  , ((mod4Mask, xK_space), spawn "emacsclient -c")
-  --  , ((mod4Mask, xK_d), shellPrompt launcherConfig)
-  --  , ((mod4Mask, xK_b), spawn "chromium")
-  --  , ( (shiftMask .|. mod4Mask, xK_e)
-  --    , spawn "xmonad --recompile && xmonad --restart")
-  --  ]
-
+    }
 myLayout = BSP.emptyBSP ||| Full
-launcherConfig = def
-  { font = "xft:DejaVu Sans Mono:pixelsize=11:antialias=true,xft:FontAwesome:pixelsize=11"
+
+launcherConfig =
+  def
+  { font =
+      "xft:Fira Mono:pixelsize=13:antialias=true,xft:FontAwesome:pixelsize=11"
   , height = 15
   , position = Bottom
   }
 
-myKeys conf = mkKeymap conf $
-  [
-    ("M-<Return>", spawn (terminal conf))
+myKeys conf =
+  mkKeymap conf $
+  [ ("M-<Return>", spawn (terminal conf))
   , ("M-<Space>", spawn editor)
   , ("<Print>", spawn "scrot -q100")
   , ("M-d", shellPrompt launcherConfig)
@@ -64,7 +59,7 @@ myKeys conf = mkKeymap conf $
   , ("M-`", windows $ W.greedyView "Control Centre")
   , ("M-1", windows $ W.greedyView "Home")
   , ("M-2", windows $ W.greedyView "Emacs")
-  , ("M-3", windows $ W.greedyView "3")
+  , ("M-3", windows $ W.greedyView "Music")
   , ("M-4", windows $ W.greedyView "4")
   , ("M-5", windows $ W.greedyView "5")
   , ("M-6", windows $ W.greedyView "6")
@@ -74,7 +69,7 @@ myKeys conf = mkKeymap conf $
   , ("M-S-`", windows $ W.shift "Control Centre")
   , ("M-S-1", windows $ W.shift "Home")
   , ("M-S-2", windows $ W.shift "Emacs")
-  , ("M-S-3", windows $ W.shift "3")
+  , ("M-S-3", windows $ W.shift "Music")
   , ("M-S-4", windows $ W.shift "4")
   , ("M-S-5", windows $ W.shift "5")
   , ("M-S-6", windows $ W.shift "6")
@@ -89,10 +84,7 @@ myKeys conf = mkKeymap conf $
   ]
 
 editor = "emacsclient -c"
-myWorkspaces = [ "Control Centre"
-               , "Home"
-               , "Emacs"
-               ] ++ (fmap show [3..9])
+myWorkspaces = ["Control Centre", "Home", "Emacs", "Music"] ++ (fmap show [4 .. 9] :: [String])
                
-browser = "chromium"
-myTerm = "urxvt"
+browser = "firefox"
+myTerm = "st"

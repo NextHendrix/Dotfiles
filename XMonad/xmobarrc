@@ -1,5 +1,5 @@
 Config
-{ font = "xft:DejaVu Sans Mono-11:antialias=true"
+{ font = "xft:Fira Mono:pixelsize=14:antialias=true"
 , bgColor = "black"
 , fgColor = "grey"
 , position = (Top)

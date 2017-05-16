@@ -13,15 +13,18 @@
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(package-refresh-contents)
+;(package-refresh-contents)
 
 ; Set up list of packages to install if missing
-(defvar chris-packages '(exwm
+(defvar chris-packages '(;exwm
 			 magit
 			 smex
 			 smartparens
 			 haskell-mode
 			 hindent
+			 js2-mode
+			 web-mode
+			 json-mode
 			 flycheck
 			 key-seq
 			 flycheck-haskell
@@ -86,6 +89,7 @@
 
 ;; Flycheck Mode
 ; Enable globally
+(require 'flycheck)
 (global-flycheck-mode 1)
 
 ;; Haskell Mode
@@ -95,7 +99,14 @@
 (add-hook 'haskell-mode-hook (lambda () (hindent-mode 1)))
 (add-hook 'haskell-mode-hook (lambda () (evil-mode 1)))
 
-;; Org Mode
+;; Web Mode
+(add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+;; Javascript Mode
+(add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
+(setq-default flycheck-disabled-checkers
+	     (append flycheck-disabled-checkers
+		     '(javascript-jshint javascript-jscs javascript-eslint)))
+
 (require 'org)
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
 
@@ -105,7 +116,7 @@
 ; Load a theme -- has to go after load-custom-file
 (load-theme 'gruvbox)
 
-(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-10"))
+(add-to-list 'default-frame-alist '(font . "Fira Mono-10"))
 
 (provide 'init)
 ;;; init.el ends here
