@@ -19,10 +19,13 @@
 (defvar chris-packages '(;exwm
 			 magit
 			 smex
+			 auctex
 			 smartparens
+			 evil-smartparens
 			 haskell-mode
 			 hindent
-			 js2-mode
+			 intero
+			 js3-mode
 			 web-mode
 			 json-mode
 			 flycheck
@@ -30,7 +33,10 @@
 			 flycheck-haskell
 			 evil
 			 gruvbox-theme
-			 zenburn-theme
+			 rainbow-mode
+			 rainbow-delimiters
+			 rainbow-blocks
+			 rainbow-identifiers
 			 ghc))
 
 ; Separate custom-set-variables now or package-install cocks it up
@@ -71,6 +77,9 @@
 
 (key-seq-define-global "jk" 'evil-normal-state)
 
+;; Smartparens
+(require 'smartparens')
+(smartparens-global-mode 1)
 ;; Ido Mode
 ; Enable and set up
 (setq ido-enable-flex-matching t)
@@ -93,20 +102,28 @@
 (global-flycheck-mode 1)
 
 ;; Haskell Mode
-(autoload 'ghc-init "ghc" nil t)
-(autoload 'ghc-debug "ghc" nil t)
-(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+;(autoload 'ghc-init "ghc" nil t)
+;(autoload 'ghc-debug "ghc" nil t)
+;(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 (add-hook 'haskell-mode-hook (lambda () (hindent-mode 1)))
 (add-hook 'haskell-mode-hook (lambda () (evil-mode 1)))
+(add-hook 'haskell-mode-hook (lambda () (intero-mode 1)))
+(add-hook 'haskell-mode-hook 'evil-smartparens-mode)
 
+;; Dired
+(add-hook 'dired-hook '(lambda () (evil-mode t)))
 ;; Web Mode
 (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
+
+;; Markdown Mode
+(add-to-list 'auto-mode-alist `("\\.md$" . markdown-mode))
+
 ;; Javascript Mode
 (add-to-list 'auto-mode-alist '("\\.js$" . js3-mode))
 (setq-default flycheck-disabled-checkers
 	     (append flycheck-disabled-checkers
 		     '(javascript-jshint javascript-jscs javascript-eslint)))
-
+;; Org Mode
 (require 'org)
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
 

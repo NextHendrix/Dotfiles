@@ -16,3 +16,4 @@ ln -sf ~/Dotfiles/ncmpcpp/{bindings,config} ~/.config/ncmpcpp/
 ln -sf ~/Dotfiles/tmux/tmux-256color ~/.terminfo/t/
 ln -sf ~/Dotfiles/XMonad/xmonad.hs ~/.xmonad/
 ln -sf ~/Dotfiles/XMonad/xmobarrc ~/.xmobarrc
+ln -sf ~/Dotfiles/spacemancs/dotspacemacs ~/.spacemacs
