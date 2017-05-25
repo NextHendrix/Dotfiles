@@ -1,16 +1,5 @@
 #!/usr/bin/zsh
 # for mememacs
-if [[ "$TERM" == "dumb" ]]
-then
-    unsetopt zle
-    unsetopt prompt_cr
-    unsetopt prompt_subst
-    unfunction precmd
-    unfunction preexec
-    PS1='$ '
-    exit 0
-fi
-
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=100000
@@ -32,7 +21,7 @@ PATH="$PATH:/home/chris/.bin:/home/chris/.local/bin:/home/chris/.cabal/bin:/usr/
 EDITOR=emacsclient
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-alias svim="sudo -E vim"
+alias svim="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
 alias ls="ls --color=auto"
 alias la="ls -a"
 alias l="ls -l"
@@ -44,7 +33,7 @@ alias poof='ping -c5 google.com'
 alias wipa='watch -n0.2 ip a'
 alias fortune='fortune -a'
 alias nmplz="sudo rc-service NetworkManager restart"
-#alias -g vim="nvim"
+alias vim="emacsclient -nw"
 alias ixio="curl -F 'f:1=<-' ix.io"
 alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
 alias e="emacsclient -nw"
