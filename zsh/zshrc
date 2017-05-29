@@ -17,7 +17,6 @@ compinit
 # End of lines added by compinstall
 PROMPT='%F{white}%n%f@%F{yellow}%m%f %F{cyan}%1~%f %# '
 RPROMPT='[%F{yellow}%?%f]'
-PATH="$PATH:/home/chris/.bin:/home/chris/.local/bin:/home/chris/.cabal/bin:/usr/lib64/llvm/4/bin"
 EDITOR=emacsclient
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 

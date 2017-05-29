@@ -1,0 +1,1 @@
+PATH="$PATH:/home/chris/.bin:/home/chris/.local/bin:/home/chris/.cabal/bin:/usr/lib64/llvm/4/bin"
