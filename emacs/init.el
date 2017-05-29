@@ -24,6 +24,9 @@
 			 evil-smartparens
 			 haskell-mode
 			 hindent
+			 ivy
+			 counsel
+			 swiper
 			 intero
 			 js3-mode
 			 web-mode
@@ -63,6 +66,9 @@
 ; And follow symlinks
 (setq vc-follow-symlinks t)
 
+; Taste the rainbow
+(rainbow-delimiters-mode t)
+
 ;; Evil mode, must be first since it's used everywhere
 ; Enable and make sure keychords are on
 (require 'evil)
@@ -70,35 +76,40 @@
 (evil-escape-mode t)
 (key-chord-mode t)
 (setq-default evil-escape-key-sequence "jk")
-(key-seq-define-global "jk" 'evil-normal-state)
+
+;; Company mode
+(require 'company)
+(require 'company-dabbrev)
+(setq company-idle-delay 0)
+(setq company-dabbrev-downcase 0)
+(global-company-mode t)
 
 ;; Smartparens
 (require 'smartparens)
-(smartparens-global-mode 1)
-;; Ido Mode
-; Enable and set up
-(require 'ido)
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
+(smartparens-global-mode t)
 
-; Enable guessing filenames at point
-(setq ido-use-filename-at-point 'guess)
+;; Ivy Mode
+(require 'ivy)
+(require 'counsel)
+(require 'swiper)
+(ivy-mode t)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
 
-;; Smex Mode
-; Initilalize and keybindings
-(require 'smex)
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-
+;; Speedbar
+(require 'speedbar)
+(speedbar-add-supported-extension ".hs")
+(global-set-key (kbd "<f12>") 'sr-speedbar-toggle)
 ;; Flycheck Mode
 ; Enable globally
 (require 'flycheck)
 (global-flycheck-mode 1)
 
 ;; Haskell Mode
+(setq haskell-stylish-on-save t)
+(setq haskell-tags-on-save t)
 (add-hook 'haskell-mode-hook 'hindent-mode)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 
 ;; Dired
 (add-hook 'dired-hook 'evil-mode)
