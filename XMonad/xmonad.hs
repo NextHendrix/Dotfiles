@@ -87,4 +87,4 @@ editor = "emacsclient -c"
 myWorkspaces = ["Control Centre", "Home", "Emacs", "Music"] ++ (fmap show [4 .. 9] :: [String])
                
 browser = "firefox"
-myTerm = "st"
+myTerm = "termite"

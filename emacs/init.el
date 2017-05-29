@@ -10,39 +10,53 @@
 ;;; Code:
 ;; Initial Package Setup and Installation
 ; Add some package archives
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 ;(package-refresh-contents)
 
 ; Set up list of packages to install if missing
-(defvar chris-packages '(magit
-			 smex
+(defvar chris-packages '(anaconda-mode
 			 auctex
-			 smartparens
+			 company-anaconda
+			 company-jedi
+			 counsel
+			 erc-image
+			 erc-yt
+			 evil
 			 evil-escape
+			 evil-magit
+			 evil-org
 			 evil-smartparens
+			 flycheck
+			 flycheck-haskell
+			 ghc
 			 haskell-mode
 			 hindent
-			 ivy
-			 counsel
-			 swiper
 			 intero
+			 ivy
+			 jedi
 			 js3-mode
-			 web-mode
 			 json-mode
-			 flycheck
 			 key-seq
-			 flycheck-haskell
-			 evil
-			 gruvbox-theme
+			 magit
+			 markdown-mode
+			 py-yapf
+			 python-mode
+			 python
 			 rainbow-delimiters
-			 rainbow-blocks
-			 rainbow-identifiers
-			 ghc))
+			 smartparens
+			 spacemacs-theme
+			 swiper
+			 web-mode
+			 yaml-mode))
 
 ; Separate custom-set-variables now or package-install cocks it up
 (setq custom-file "~/.emacs.d/custom.el")
+
+; Set exec path
+(setq exec-path (append exec-path '("~/.local/bin/")))
 
 ; Download and install any missing packages
 (package-initialize)
@@ -67,8 +81,46 @@
 (setq vc-follow-symlinks t)
 
 ; Taste the rainbow
+(global-rainbow-blocks-mode t)
 (rainbow-delimiters-mode t)
 
+;; ERC
+(require 'erc)
+(require 'erc-tex)
+(require 'erc-image)
+(require 'erc-yt)
+(require 'ytapikey)
+(add-to-list 'erc-modules 'tex)
+(add-to-list 'erc-modules 'youtube)
+(add-to-list 'erc-modules 'image)
+(erc-update-modules)
+(setq-default erc-user-full-name "NextHendrix")
+(setq-default erc-nick "NextHendrix")
+(setq-default erc-server "nexthendr.tk")
+(setq-default erc-port "5555")
+(setq erc-interpret-controls-p t)
+(setq erc-interpret-mirc-color t)
+(add-hook 'erc-mode-hook 'erc-tex-mode)
+(add-hook 'erc-mode-hook 'erc-colorize-mode)
+(add-hook 'erc-mode-hook 'erc-image-mode)
+(defun get-time()
+  "Fetches the time"
+  (shell-command-to-string "date"))
+(defun get-uptime()
+  "Fetches uptime"
+  (shell-command-to-string "uptime"))
+(defun get-uname()
+  "Fetches uname -a"
+  (shell-command-to-string "uname -a"))
+(defun erc-cmd-TIME()
+  "Sends the result of 'date' to erc buffer"
+  (erc-send-message (get-time)))
+(defun erc-cmd-UPTIME()
+  "Sends the result of 'uptime' to erc buffer"
+  (erc-send-message (get-uptime)))
+(defun erc-cmd-UNAME()
+  "Sends the result of 'uname -a' to erc buffer"
+  (erc-send-message (get-uname)))
 ;; Evil mode, must be first since it's used everywhere
 ; Enable and make sure keychords are on
 (require 'evil)
@@ -100,12 +152,14 @@
 (require 'speedbar)
 (speedbar-add-supported-extension ".hs")
 (global-set-key (kbd "<f12>") 'sr-speedbar-toggle)
+
 ;; Flycheck Mode
 ; Enable globally
 (require 'flycheck)
 (global-flycheck-mode 1)
 
 ;; Haskell Mode
+(require 'haskell)
 (setq haskell-stylish-on-save t)
 (setq haskell-tags-on-save t)
 (add-hook 'haskell-mode-hook 'hindent-mode)
@@ -113,10 +167,13 @@
 
 ;; Dired
 (add-hook 'dired-hook 'evil-mode)
+
 ;; Web Mode
+(require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html$" . web-mode))
 
 ;; Markdown Mode
+(require 'markdown-mode)
 (add-to-list 'auto-mode-alist `("\\.md$" . markdown-mode))
 
 ;; Javascript Mode
@@ -128,15 +185,19 @@
 (require 'org)
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
 
-; Fix horrible theme overlapping
-(defadvice load-theme (before theme-dont-propagate activate)
- (mapc #'disable-theme custom-enabled-themes))
+;; Python Mode
+(add-hook 'py-mode-hook 'anaconda-mode)
+(add-hook 'py-mode-hook 'jedi-mode)
 
 ;; Appendages
 (load custom-file)
 
+; Fix horrible theme overlapping
+(defadvice load-theme (before theme-dont-propagate activate)
+ (mapc #'disable-theme custom-enabled-themes))
+
 ; Load a theme -- has to go after load-custom-file
-(load-theme 'gruvbox)
+(load-theme 'spacemacs-light)
 
 (add-to-list 'default-frame-alist '(font . "Fira Mono-10"))
 
