@@ -22,6 +22,7 @@
 			 company-anaconda
 			 company-jedi
 			 counsel
+			 counsel-projectile
 			 erc-image
 			 erc-yt
 			 evil
@@ -121,6 +122,19 @@
 (defun erc-cmd-UNAME()
   "Sends the result of 'uname -a' to erc buffer"
   (erc-send-message (get-uname)))
+(defun fortune()
+  "Gets a fortune"
+  (shell-command-to-string "fortune -a"))
+(defun erc-cmd-FORTUNE()
+  "Send a fortune to ERC"
+  (erc-send-message (fortune)))
+(defun fortuno()
+  "Gets a fortune"
+  (shell-command-to-string "fortune -o"))
+(defun erc-cmd-FORTUNO()
+  "Send an offensive fortune to ERC"
+  (erc-send-message (fortune)))
+
 ;; Evil mode, must be first since it's used everywhere
 ; Enable and make sure keychords are on
 (require 'evil)
