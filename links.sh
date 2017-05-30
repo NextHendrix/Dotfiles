@@ -1,6 +1,6 @@
 #!/bin/sh
 
-mkdir -p ~/{.config/{ncmpcpp,bspwm,sxhkd,termite,compton,nvim/autoload},.emacs.d,.terminfo/t,.xmonad/}
+mkdir -p ~/{.config/{ncmpcpp,bspwm,sxhkd,termite,compton,nvim/autoload},.emacs.d/lisp/,.terminfo/t,.xmonad/}
 ln -sf ~/Dotfiles/nvim/init.vim ~/.config/nvim/
 cp ~/Dotfiles/nvim/plug.vim ~/.config/nvim/autoload/
 ln -sf ~/Dotfiles/termite/config ~/.config/termite/
@@ -17,3 +17,4 @@ ln -sf ~/Dotfiles/tmux/tmux-256color ~/.terminfo/t/
 ln -sf ~/Dotfiles/XMonad/xmonad.hs ~/.xmonad/
 ln -sf ~/Dotfiles/XMonad/xmobarrc ~/.xmobarrc
 ln -sf ~/Dotfiles/spacemancs/dotspacemacs ~/.spacemacs
+ln -sf ~/Dotfiles/emacs/erc-tex.el ~/.emacs.d/lisp/
