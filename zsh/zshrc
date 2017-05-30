@@ -1,6 +1,7 @@
 #!/usr/bin/zsh
 # for mememacs
 # Lines configured by zsh-newuser-install
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000

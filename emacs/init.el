@@ -82,7 +82,6 @@
 (setq vc-follow-symlinks t)
 
 ; Taste the rainbow
-(global-rainbow-blocks-mode t)
 (rainbow-delimiters-mode t)
 
 ;; ERC
@@ -90,7 +89,6 @@
 (require 'erc-tex)
 (require 'erc-image)
 (require 'erc-yt)
-(require 'ytapikey)
 (add-to-list 'erc-modules 'tex)
 (add-to-list 'erc-modules 'youtube)
 (add-to-list 'erc-modules 'image)
