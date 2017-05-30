@@ -89,6 +89,8 @@
 (require 'erc-tex)
 (require 'erc-image)
 (require 'erc-yt)
+(setq erc-image-inline-rescale "window")
+(setq erc-tex-image-size 2.0)
 (add-to-list 'erc-modules 'tex)
 (add-to-list 'erc-modules 'youtube)
 (add-to-list 'erc-modules 'image)
