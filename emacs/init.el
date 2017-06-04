@@ -12,9 +12,10 @@
 ; Add some package archives
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (require 'package)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-;(package-refresh-contents)
+(package-refresh-contents)
 
 ; Set up list of packages to install if missing
 (defvar chris-packages '(anaconda-mode
