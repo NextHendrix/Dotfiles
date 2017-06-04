@@ -1,16 +1,16 @@
-import XMonad
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks
-import XMonad.Util.Run (spawnPipe)
-import XMonad.Util.EZConfig
-import XMonad.Layout.NoBorders (smartBorders)
+import           System.IO
+import           XMonad
+import qualified XMonad.Actions.Navigation2D        as N
+import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.ManageDocks
 import qualified XMonad.Layout.BinarySpacePartition as BSP
-import qualified XMonad.Layout.Spacing as S
-import XMonad.Prompt
-import XMonad.Prompt.Shell
-import qualified XMonad.StackSet as W
-import qualified XMonad.Actions.Navigation2D as N
-import System.IO
+import           XMonad.Layout.NoBorders            (smartBorders)
+import qualified XMonad.Layout.Spacing              as S
+import           XMonad.Prompt
+import           XMonad.Prompt.Shell
+import qualified XMonad.StackSet                    as W
+import           XMonad.Util.EZConfig
+import           XMonad.Util.Run                    (spawnPipe)
 
 main = do
   xmproc <- spawnPipe "/usr/bin/xmobar /home/chris/.xmobarrc"
@@ -52,6 +52,7 @@ myKeys conf =
   , ("<Print>", spawn "scrot -q100")
   , ("M-d", shellPrompt launcherConfig)
   , ("M-b", spawn browser)
+  , ("M-S-b", spawn pBrowser)
   , ("M-q", kill)
   , ("M-S-r", spawn "xmonad --recompile && xmonad --restart")
   , ("M-e", sendMessage NextLayout)
@@ -85,6 +86,7 @@ myKeys conf =
 
 editor = "emacsclient -c"
 myWorkspaces = ["Control Centre", "Home", "Emacs", "Music"] ++ (fmap show [4 .. 9] :: [String])
-               
+
+pBrowser = "firefox --private-window"
 browser = "firefox"
 myTerm = "termite"

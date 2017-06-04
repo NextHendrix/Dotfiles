@@ -19,6 +19,7 @@
 ; Set up list of packages to install if missing
 (defvar chris-packages '(anaconda-mode
 			 auctex
+			 auctex-latexmk
 			 company-anaconda
 			 company-jedi
 			 counsel
@@ -174,10 +175,16 @@
 
 ;; Haskell Mode
 (require 'haskell)
+(require 'haskell-interactive-mode)
+(require 'haskell-process)
 (setq haskell-stylish-on-save t)
 (setq haskell-tags-on-save t)
-(add-hook 'haskell-mode-hook 'hindent-mode)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+(add-hook 'haskell-mode-hook 'hindent-mode)
+(setq haskell-process-suggest-remove-import-lines t)
+(setq haskell-process-auto-import-loaded-modules t)
+(setq haskell-process-log t)
+(setq haskell-process-type 'stack-ghci)
 
 ;; Dired
 (add-hook 'dired-hook 'evil-mode)
@@ -199,9 +206,17 @@
 (require 'org)
 (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
 
+;; Latex Mode
+(require 'auctex-latexmk)
+(auctex-latexmk-setup)
+
 ;; Python Mode
 (add-hook 'py-mode-hook 'anaconda-mode)
 (add-hook 'py-mode-hook 'jedi-mode)
+
+;; PDF Mode
+(pdf-tools-install)
+(add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
 
 ;; Appendages
 (load custom-file)
