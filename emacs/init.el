@@ -226,7 +226,7 @@
  (mapc #'disable-theme custom-enabled-themes))
 
 ; Load a theme -- has to go after load-custom-file
-(load-theme 'spacemacs-light)
+(load-theme 'spacemacs-dark)
 
 (add-to-list 'default-frame-alist '(font . "Fira Mono-10"))
 
