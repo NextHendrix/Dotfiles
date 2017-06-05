@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
+
 # for mememacs
-# Lines configured by zsh-newuser-install
 if [[ "$TERM" == "dumb" ]]
 then
   unsetopt zle
@@ -42,7 +42,6 @@ alias l="ls -l"
 alias lla="ls -la"
 alias wpaplz="sudo rc-service wpa_supplicant restart"
 alias cbg="feh --bg-fill --randomize ~/Wallpapers"
-# alias pbpst='function _pbpst() { curl -F c=@$1 https://ptpb.pw; };_pbpst'
 alias poof='ping -c5 google.com'
 alias wipa='watch -n0.2 ip a'
 alias fortune='fortune -a'

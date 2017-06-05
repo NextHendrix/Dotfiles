@@ -5,13 +5,13 @@ import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.ManageDocks
 import qualified XMonad.Layout.BinarySpacePartition as BSP
 import           XMonad.Layout.NoBorders            (smartBorders)
-import qualified XMonad.Layout.Spacing              as S
 import           XMonad.Prompt
 import           XMonad.Prompt.Shell
 import qualified XMonad.StackSet                    as W
 import           XMonad.Util.EZConfig
 import           XMonad.Util.Run                    (spawnPipe)
 
+main :: IO ()
 main = do
   xmproc <- spawnPipe "/usr/bin/xmobar /home/chris/.xmobarrc"
   xmonad $
@@ -23,7 +23,7 @@ main = do
     docks $
     def
     { manageHook = manageDocks <+> manageHook def
-    , layoutHook = smartBorders (avoidStruts $ myLayout)
+    , layoutHook = smartBorders (avoidStruts myLayout)
     , logHook =
         dynamicLogWithPP
           xmobarPP
@@ -34,9 +34,13 @@ main = do
     , terminal = myTerm
     , keys = myKeys
     , workspaces = myWorkspaces
+    , normalBorderColor = "#000000"
+    , focusedBorderColor = "#FFFFFF"
     }
+
 myLayout = BSP.emptyBSP ||| Full
 
+launcherConfig :: XPConfig
 launcherConfig =
   def
   { font =
@@ -46,7 +50,7 @@ launcherConfig =
   }
 
 myKeys conf =
-  mkKeymap conf $
+  mkKeymap conf
   [ ("M-<Return>", spawn (terminal conf))
   , ("M-<Space>", spawn editor)
   , ("<Print>", spawn "scrot -q100")
@@ -84,9 +88,18 @@ myKeys conf =
   , ("M-C-l", sendMessage $ BSP.ExpandTowards R)
   ]
 
+editor :: String
 editor = "emacsclient -c"
-myWorkspaces = ["Control Centre", "Home", "Emacs", "Music"] ++ (fmap show [4 .. 9] :: [String])
 
+myWorkspaces :: [String]
+myWorkspaces =
+  ["Control Centre", "Home", "Emacs", "Music"] ++ (fmap show [4 .. 9])
+
+pBrowser :: String
 pBrowser = "firefox --private-window"
+
+browser :: String
 browser = "firefox"
+
+myTerm :: String
 myTerm = "termite"

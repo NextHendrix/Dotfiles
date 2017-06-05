@@ -90,11 +90,9 @@
 (require 'erc)
 (require 'erc-tex)
 (require 'erc-image)
-(require 'erc-yt)
 (setq erc-image-inline-rescale "window")
 (setq erc-tex-image-size 2.0)
 (add-to-list 'erc-modules 'tex)
-(add-to-list 'erc-modules 'youtube)
 (add-to-list 'erc-modules 'image)
 (erc-update-modules)
 (setq-default erc-user-full-name "NextHendrix")
@@ -106,6 +104,7 @@
 (add-hook 'erc-mode-hook 'erc-tex-mode)
 (add-hook 'erc-mode-hook 'erc-colorize-mode)
 (add-hook 'erc-mode-hook 'erc-image-mode)
+(add-hook 'erc-mode-hook 'erc-fill-disable)
 (defun get-time()
   "Fetches the time"
   (shell-command-to-string "date"))
@@ -135,7 +134,7 @@
   (shell-command-to-string "fortune -o"))
 (defun erc-cmd-FORTUNO()
   "Send an offensive fortune to ERC"
-  (erc-send-message (fortune)))
+  (erc-send-message (fortuno)))
 
 ;; Evil mode, must be first since it's used everywhere
 ; Enable and make sure keychords are on

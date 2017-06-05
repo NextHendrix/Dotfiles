@@ -1,22 +1,18 @@
 
-./xmonad.hs,223
+./xmonad.hs,408
+main main13,14
 main main14,15
-myLayout myLayout37,38
-launcherConfig launcherConfig39,40
-myKeys myKeys47,48
-editor editor86,87
-myWorkspaces myWorkspaces87,88
-pBrowser pBrowser89,90
-browser browser90,91
-myTerm myTerm91,92
-
-./flycheck_xmonad.hs,223
-main main14,15
-myLayout myLayout37,38
-launcherConfig launcherConfig39,40
-myKeys myKeys47,48
-editor editor86,87
-myWorkspaces myWorkspaces87,88
-pBrowser pBrowser89,90
-browser browser90,91
-myTerm myTerm91,92
+myLayout myLayout40,41
+launcherConfig launcherConfig42,43
+launcherConfig launcherConfig43,44
+myKeys myKeys51,52
+editor editor90,91
+editor editor91,92
+myWorkspaces myWorkspaces93,94
+myWorkspaces myWorkspaces94,95
+pBrowser pBrowser97,98
+pBrowser pBrowser98,99
+browser browser100,101
+browser browser101,102
+myTerm myTerm103,104
+myTerm myTerm104,105
