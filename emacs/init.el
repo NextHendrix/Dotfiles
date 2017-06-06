@@ -41,6 +41,7 @@
 			 company-jedi
 			 counsel
 			 counsel-projectile
+			 erc-colorize
 			 erc-image
 			 erc-yt
 			 evil

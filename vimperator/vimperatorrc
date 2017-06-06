@@ -1,0 +1,16 @@
+mapclear
+cmapclear
+imapclear
+
+inoremap jk <ESC>
+
+colors
+set defsearch=google
+set suggestengines=google
+set gui=none,tabs,addons
+set maxitems=10
+set focuscontent
+set! browser.tabs.autoHide=false
+set! browser.fullscreen.animateUp=0
+
+" vim: ft=vimperator ts=4 sw=4 sts=0 et fdm=marker fdc=:3
