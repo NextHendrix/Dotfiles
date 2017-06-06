@@ -6,11 +6,27 @@
 ;; This little commentary is only here because otherwise flycheck shits its pants
 ;; Anyway lets get on with it
 
-
 ;;; Code:
 ;; Initial Package Setup and Installation
-; Add some package archives
+
+; Separate custom-set-variables now or package-install cocks it up
+(setq custom-file "~/.emacs.d/custom.el")
+
+; Set exec path
+(setq exec-path (append exec-path '("~/.local/bin/")))
+
+; Set load path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+
+;; General interface options
+(column-number-mode t)
+(display-time-mode t)
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(scroll-bar-mode 0)
+
+
+; Add some package archives
 (require 'package)
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
@@ -55,24 +71,11 @@
 			 web-mode
 			 yaml-mode))
 
-; Separate custom-set-variables now or package-install cocks it up
-(setq custom-file "~/.emacs.d/custom.el")
-
-; Set exec path
-(setq exec-path (append exec-path '("~/.local/bin/")))
-
 ; Download and install any missing packages
 (package-initialize)
 (dolist (p chris-packages)
   (when (not (package-installed-p p))
     (package-install p)))
-
-;; General interface options
-(column-number-mode t)
-(display-time-mode t)
-(tool-bar-mode 0)
-(menu-bar-mode 0)
-(scroll-bar-mode 0)
 
 ; Make sure Emacs doesn't chuck fucking mess everywhere
 (setq backup-directory-alist
