@@ -20,3 +20,4 @@ ln -sf ~/Dotfiles/XMonad/xmonad.hs ~/.xmonad/
 ln -sf ~/Dotfiles/XMonad/xmobarrc ~/.xmobarrc
 ln -sf ~/Dotfiles/spacemancs/dotspacemacs ~/.spacemacs
 ln -sf ~/Dotfiles/emacs/erc-tex.el ~/.emacs.d/lisp/
+ln -sf ~/Dotfiles/git/gitconfig ~/.gitconfig
