@@ -18,6 +18,5 @@ ln -sf ~/Dotfiles/tmux/tmux-256color ~/.terminfo/t/
 ln -sf ~/Dotfiles/termite/xterm-termite ~/.terminfo/x/
 ln -sf ~/Dotfiles/XMonad/xmonad.hs ~/.xmonad/
 ln -sf ~/Dotfiles/XMonad/xmobarrc ~/.xmobarrc
-ln -sf ~/Dotfiles/spacemancs/dotspacemacs ~/.spacemacs
 ln -sf ~/Dotfiles/emacs/erc-tex.el ~/.emacs.d/lisp/
 ln -sf ~/Dotfiles/git/gitconfig ~/.gitconfig

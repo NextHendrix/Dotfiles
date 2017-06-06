@@ -6,5 +6,4 @@ xrdb ~/.Xresources
 compton --config=/home/chris/Dotfiles/compton/compton.conf &
 xset -dpms s off
 emacs --daemon
-urxvtd &
 exec xmonad
