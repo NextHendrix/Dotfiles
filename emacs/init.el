@@ -31,7 +31,7 @@
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(package-refresh-contents)
+;(package-refresh-contents)
 
 ; Set up list of packages to install if missing
 (defvar chris-packages '(anaconda-mode
@@ -62,6 +62,8 @@
 			 key-seq
 			 magit
 			 markdown-mode
+			 pdf-tools
+			 projectile
 			 py-yapf
 			 python-mode
 			 python
@@ -219,7 +221,7 @@
 (add-hook 'py-mode-hook 'jedi-mode)
 
 ;; PDF Mode
-(pdf-tools-install)
+;(pdf-tools-install)
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
 
 ;; Appendages

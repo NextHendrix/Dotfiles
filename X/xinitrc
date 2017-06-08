@@ -5,5 +5,4 @@ xmodmap ~/.Xmodmap
 xrdb ~/.Xresources
 compton --config=/home/chris/Dotfiles/compton/compton.conf &
 xset -dpms s off
-emacs --daemon
 exec xmonad
