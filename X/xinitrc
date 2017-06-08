@@ -1,4 +1,4 @@
-feh --bg-fill ~/Wallpapers/1483932766360.jpg
+feh --bg-fill --randomize ~/Wallpapers/
 setxkbmap gb -option compose:menu
 xset r rate 200 100
 xmodmap ~/.Xmodmap

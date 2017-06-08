@@ -4,7 +4,6 @@ imapclear
 
 inoremap jk <ESC>
 
-colors
 set defsearch=google
 set suggestengines=google
 set gui=none,tabs,addons
