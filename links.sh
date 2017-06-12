@@ -21,3 +21,4 @@ ln -sf ~/Dotfiles/XMonad/xmobarrc ~/.xmobarrc
 ln -sf ~/Dotfiles/emacs/erc-tex.el ~/.emacs.d/lisp/
 ln -sf ~/Dotfiles/vimperator/vimperatorrc ~/.vimperatorrc
 ln -sf ~/Dotfiles/git/gitconfig ~/.gitconfig
+ln -sf ~/Dotfiles/ghci/ghci ~/.ghci

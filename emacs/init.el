@@ -111,6 +111,7 @@
 (add-hook 'erc-mode-hook 'erc-colorize-mode)
 (add-hook 'erc-mode-hook 'erc-image-mode)
 (add-hook 'erc-mode-hook 'erc-fill-disable)
+(add-hook 'erc-mode-hook 'visual-line-mode)
 (defun get-time()
   "Fetches the time"
   (shell-command-to-string "date"))
@@ -221,7 +222,7 @@
 (add-hook 'py-mode-hook 'jedi-mode)
 
 ;; PDF Mode
-;(pdf-tools-install)
+(pdf-tools-install)
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
 
 ;; Appendages
