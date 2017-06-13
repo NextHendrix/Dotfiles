@@ -39,6 +39,7 @@
 			 auctex-latexmk
 			 company-anaconda
 			 company-jedi
+			 company-nixos-options
 			 counsel
 			 counsel-projectile
 			 erc-colorize
@@ -62,6 +63,8 @@
 			 key-seq
 			 magit
 			 markdown-mode
+			 nix-mode
+			 nixos-options
 			 pdf-tools
 			 projectile
 			 py-yapf
@@ -222,7 +225,7 @@
 (add-hook 'py-mode-hook 'jedi-mode)
 
 ;; PDF Mode
-(pdf-tools-install)
+;(pdf-tools-install)
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
 
 ;; Appendages
