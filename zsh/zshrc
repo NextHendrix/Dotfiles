@@ -35,7 +35,7 @@ RPROMPT='[%F{yellow}%?%f]'
 EDITOR=emacsclient
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-alias svim="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
+alias svim="sudo -E vim"
 alias ls="ls --color=auto"
 alias la="ls -a"
 alias l="ls -l"
@@ -46,7 +46,6 @@ alias poof='ping -c5 google.com'
 alias wipa='watch -n0.2 ip a'
 alias fortune='fortune -a'
 alias nmplz="sudo rc-service NetworkManager restart"
-alias vim="emacsclient -nw"
 alias ixio="curl -F 'f:1=<-' ix.io"
 alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
 alias e="emacsclient -nw"
