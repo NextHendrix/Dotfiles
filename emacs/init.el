@@ -24,6 +24,8 @@
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
+(setq inhibit-startup-screen t)
+(setq inhibit-splash-screen t)
 
 
 ; Add some package archives
