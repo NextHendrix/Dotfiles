@@ -59,6 +59,7 @@
 			 hindent
 			 intero
 			 ivy
+			 jdee
 			 jedi
 			 js3-mode
 			 json-mode
@@ -97,6 +98,8 @@
 ; Taste the rainbow
 (rainbow-delimiters-mode t)
 
+;; JDEE
+(setq jdee-server-dir "~/.jdee/")
 ;; ERC
 (require 'erc)
 (require 'erc-tex)
