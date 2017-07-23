@@ -1,8 +1,7 @@
 #!/bin/sh
 
-mkdir -p ~/{.config/{ncmpcpp,bspwm,sxhkd,termite,compton,nvim/autoload},.emacs.d/lisp/,.terminfo/{t,x},.xmonad/}
-ln -sf ~/Dotfiles/nvim/init.vim ~/.config/nvim/
-cp ~/Dotfiles/nvim/plug.vim ~/.config/nvim/autoload/
+mkdir -p ~/{.config/{ncmpcpp,bspwm,sxhkd,termite,compton},.emacs.d/lisp/,.terminfo/{t,x},.xmonad/}
+ln -sf ~/Dotfiles/vim/vimrc ~/.vimrc
 ln -sf ~/Dotfiles/termite/config ~/.config/termite/
 ln -sf ~/Dotfiles/bspwm/bspwmrc ~/.config/bspwm/
 ln -sf ~/Dotfiles/sxhkd/sxhkdrc ~/.config/sxhkd/

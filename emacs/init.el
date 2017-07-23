@@ -66,8 +66,7 @@
 			 key-seq
 			 magit
 			 markdown-mode
-			 nix-mode
-			 nixos-options
+			 nginx-mode
 			 pdf-tools
 			 projectile
 			 py-yapf
