@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 mkdir -p ~/{.config/{ncmpcpp,bspwm,sxhkd,termite,compton},.emacs.d/lisp/,.terminfo/{t,x},.xmonad/}
 ln -sf ~/Dotfiles/vim/vimrc ~/.vimrc
