@@ -36,18 +36,13 @@
 ;(package-refresh-contents)
 
 ; Set up list of packages to install if missing
-(defvar chris-packages '(anaconda-mode
-			 auctex
+(defvar chris-packages '(auctex
 			 auctex-latexmk
-			 company-anaconda
-			 company-jedi
-			 company-nixos-options
-			 counsel
+			  counsel
 			 counsel-projectile
 			 erc-colorize
 			 erc-image
-			 erc-yt
-			 evil
+			  evil
 			 evil-escape
 			 evil-magit
 			 evil-org
@@ -59,9 +54,7 @@
 			 hindent
 			 intero
 			 ivy
-			 jdee
-			 jedi
-			 js3-mode
+			  js3-mode
 			 json-mode
 			 key-seq
 			 magit
@@ -69,10 +62,7 @@
 			 nginx-mode
 			 pdf-tools
 			 projectile
-			 py-yapf
-			 python-mode
-			 python
-			 rainbow-delimiters
+			  rainbow-delimiters
 			 smartparens
 			 spacemacs-theme
 			 swiper
@@ -97,8 +87,6 @@
 ; Taste the rainbow
 (rainbow-delimiters-mode t)
 
-;; JDEE
-(setq jdee-server-dir "~/.jdee/")
 ;; ERC
 (require 'erc)
 (require 'erc-tex)
@@ -224,12 +212,9 @@
 (require 'auctex-latexmk)
 (auctex-latexmk-setup)
 
-;; Python Mode
-(add-hook 'py-mode-hook 'anaconda-mode)
-(add-hook 'py-mode-hook 'jedi-mode)
 
 ;; PDF Mode
-;(pdf-tools-install)
+(pdf-tools-install)
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
 
 ;; Appendages
