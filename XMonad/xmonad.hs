@@ -13,7 +13,7 @@ import           XMonad.Util.Run                    (spawnPipe)
 
 main :: IO ()
 main = do
-  xmproc <- spawnPipe "/usr/bin/xmobar /home/chris/.xmobarrc"
+  xmproc <- spawnPipe "/home/chris/.local/bin/xmobar /home/chris/.xmobarrc"
   xmonad $
     N.navigation2DP
       def
@@ -89,7 +89,7 @@ myKeys conf =
   ]
 
 editor :: String
-editor = "emacsclient -c"
+editor = "emacs"
 
 myWorkspaces :: [String]
 myWorkspaces =
@@ -102,4 +102,4 @@ browser :: String
 browser = "firefox"
 
 myTerm :: String
-myTerm = "termite"
+myTerm = "xfce4-terminal"

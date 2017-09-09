@@ -2,3 +2,10 @@
 	name = NextHendrix
 	email = chris.jones.492@gmail.com
 	signingkey = B04808073402DEED288B303D191868B5FED5CC6A
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[credential]
+	helper = cache
