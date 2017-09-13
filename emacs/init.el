@@ -154,8 +154,8 @@
 (global-company-mode t)
 
 ;; Smartparens
-(require 'smartparens)
-(smartparens-global-mode t)
+;(require 'smartparens)
+;(smartparens-global-mode t)
 
 ;; Ivy Mode
 (require 'ivy)
@@ -225,9 +225,9 @@
  (mapc #'disable-theme custom-enabled-themes))
 
 ; Load a theme -- has to go after load-custom-file
-(load-theme 'spacemacs-dark)
+(load-theme 'spacemacs-light)
 
-(add-to-list 'default-frame-alist '(font . "Fira Mono-10"))
+(add-to-list 'default-frame-alist '(font . "Fira Mono-11"))
 
 (provide 'init)
 ;;; init.el ends here

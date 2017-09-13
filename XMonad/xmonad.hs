@@ -65,7 +65,7 @@ myKeys conf =
   , ("M-1", windows $ W.greedyView "Home")
   , ("M-2", windows $ W.greedyView "Emacs")
   , ("M-3", windows $ W.greedyView "Music")
-  , ("M-4", windows $ W.greedyView "4")
+  , ("M-4", windows $ W.greedyView "Steam")
   , ("M-5", windows $ W.greedyView "5")
   , ("M-6", windows $ W.greedyView "6")
   , ("M-7", windows $ W.greedyView "7")
@@ -75,7 +75,7 @@ myKeys conf =
   , ("M-S-1", windows $ W.shift "Home")
   , ("M-S-2", windows $ W.shift "Emacs")
   , ("M-S-3", windows $ W.shift "Music")
-  , ("M-S-4", windows $ W.shift "4")
+  , ("M-S-4", windows $ W.shift "Steam")
   , ("M-S-5", windows $ W.shift "5")
   , ("M-S-6", windows $ W.shift "6")
   , ("M-S-7", windows $ W.shift "7")
@@ -89,11 +89,11 @@ myKeys conf =
   ]
 
 editor :: String
-editor = "emacs"
+editor = "emacsclient -c"
 
 myWorkspaces :: [String]
 myWorkspaces =
-  ["Control Centre", "Home", "Emacs", "Music"] ++ (fmap show [4 .. 9])
+  ["Control Centre", "Home", "Emacs", "Music", "Steam"] ++ (fmap show [5 .. 9])
 
 pBrowser :: String
 pBrowser = "firefox --private-window"

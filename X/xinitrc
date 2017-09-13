@@ -5,5 +5,7 @@ xmodmap ~/.Xmodmap
 xrdb ~/.Xresources
 compton --config=/home/chris/Dotfiles/compton/compton.conf &
 xset -dpms s off
+xinput --set-prop 11 "libinput Natural Scrolling Enabled" 1
 xinput --set-prop 10 "libinput Natural Scrolling Enabled" 1
+emacs --daemon &
 exec stack exec xmonad
