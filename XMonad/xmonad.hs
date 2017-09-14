@@ -102,4 +102,4 @@ browser :: String
 browser = "firefox"
 
 myTerm :: String
-myTerm = "xfce4-terminal"
+myTerm = "termite"

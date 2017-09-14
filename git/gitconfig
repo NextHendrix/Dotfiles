@@ -9,3 +9,5 @@
 	process = git-lfs filter-process
 [credential]
 	helper = cache
+[core]
+	editor = vim
