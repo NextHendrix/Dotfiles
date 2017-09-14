@@ -13,7 +13,7 @@ import           XMonad.Util.Run                    (spawnPipe)
 
 main :: IO ()
 main = do
-  xmproc <- spawnPipe "/home/chris/.local/bin/xmobar /home/chris/.xmobarrc"
+  xmproc <- spawnPipe "/usr/bin/xmobar /home/chris/.xmobarrc"
   xmonad $
     N.navigation2DP
       def
