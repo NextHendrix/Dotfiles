@@ -3,6 +3,7 @@ import           XMonad
 import qualified XMonad.Actions.Navigation2D        as N
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.ManageDocks
+import           XMonad.Hooks.ManageHelpers
 import qualified XMonad.Layout.BinarySpacePartition as BSP
 import           XMonad.Layout.NoBorders            (smartBorders)
 import           XMonad.Prompt
@@ -22,8 +23,8 @@ main = do
       False $
     docks $
     def
-    { manageHook = manageDocks <+> manageHook def
-    , layoutHook = smartBorders (avoidStruts myLayout)
+    { manageHook = manageDocks <+> (isFullscreen --> doFullFloat) <+> manageHook def
+    , layoutHook = smartBorders . avoidStruts $ myLayout
     , logHook =
         dynamicLogWithPP
           xmobarPP
@@ -57,6 +58,7 @@ myKeys conf =
   , ("M-d", shellPrompt launcherConfig)
   , ("M-b", spawn browser)
   , ("M-S-b", spawn pBrowser)
+  , ("M-S-<Space>", sendMessage ToggleStruts)
   , ("M-q", kill)
   , ("M-S-r", spawn "xmonad --recompile && xmonad --restart")
   , ("M-e", sendMessage NextLayout)
