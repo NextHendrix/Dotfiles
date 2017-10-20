@@ -211,6 +211,8 @@
 (require 'auctex-latexmk)
 (auctex-latexmk-setup)
 
+;; Python Mode
+(setq python-indent-offset 2)
 
 ;; PDF Mode
 (pdf-tools-install)
