@@ -11,3 +11,5 @@
 	helper = cache
 [core]
 	editor = emacsclient -nw
+[commit]
+	gpgsign = true
