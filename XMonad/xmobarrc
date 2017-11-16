@@ -2,18 +2,17 @@ Config
 { font = "xft:Fira Mono:pixelsize=14:antialias=true"
 , bgColor = "#282828"
 , fgColor = "#ebdbb2"
-, position = (Top)
+, position = (Bottom)
 , lowerOnStart = True
 , commands =
     [ Run MultiCpu ["-L", "3", "-H", "50", "--normal", "#b8bb26", "--high", "#fb4934"] 10
     , Run Memory ["-t", "Mem: <usedratio>%"] 10
     , Run Swap [] 10
     , Run Date "%F %H:%M" "date" 10
-    , Run CoreTemp [] 10
     , Run StdinReader
     ]
 , sepChar = "%"
 , alignSep = "}{"
 , template =
-    "%StdinReader% }{ %multicpu% | %memory% | %swap% | %coretemp%   <fc=#d79921>%date%</fc>"
+    "%StdinReader% }{ %multicpu% | %memory% | %swap%   <fc=#d79921>%date%</fc>"
 }

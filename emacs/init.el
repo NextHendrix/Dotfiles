@@ -6,9 +6,10 @@
 (scroll-bar-mode 0)
 
 ;; Startup
-(setq inhibit-startup-screen t)
-(setq initial-major-mode 'org-mode)
-(setq initial-scratch-message "")
+(setq inhibit-startup-screen t) ; no splash
+(setq initial-major-mode 'org-mode) ; scratch be org
+(setq initial-scratch-message "") ; empty scratch 
+(setq vc-follow-symlinks t) ; don't prompt for following symlinks
 
 ;; Stop emacs shitting files all over the place
 (setq make-backup-files nil) ; stop creating backup~ files
@@ -27,22 +28,25 @@
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 
-(unless (package-installed-p 'magit)
+(unless (package-installed-p 'magit) ; only refresh if nothing's installed
   (package-refresh-contents))
 
 (defvar mypackages '(magit
 		     ivy
 		     counsel))
-(dolist (p mypackages)
+
+(dolist (p mypackages) ; install my packages
   (when (not (package-installed-p p))
     (package-install p)))
 
 ;; Ivy Mode
-(ivy-mode 1)
-(setq ivy-use-selectable-prompt t)
-(global-set-key "\C-s" 'swiper)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
-(global-set-key (kbd "M-x") 'counsel-M-x)
+(require 'ivy)
+(ivy-mode 1) ; enable globally
+(setq ivy-use-selectable-prompt t) ; select files not in list
+(global-set-key "\C-s" 'swiper) ; improved i-search
+(global-set-key (kbd "C-x C-f") 'counsel-find-file) ; better open files
+(global-set-key (kbd "M-x") 'counsel-M-x) ; better run shit
+
 ;; Org Mode
 (require 'org)
 (define-key global-map "\C-cl" 'org-store-link)

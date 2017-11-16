@@ -5,7 +5,7 @@ xmodmap ~/.Xmodmap
 xrdb ~/.Xresources
 xset -dpms s off
 emacs --daemon &
-~/.screenlayout/rots.sh
 pulseaudio --start &
 mpd &
+~/.screenlayout/rots.sh
 exec xmonad
