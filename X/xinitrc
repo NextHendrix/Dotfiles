@@ -3,7 +3,9 @@ setxkbmap gb -option compose:menu
 xset r rate 200 100
 xmodmap ~/.Xmodmap
 xrdb ~/.Xresources
-compton --config=/home/chris/Dotfiles/compton/compton.conf &
 xset -dpms s off
 emacs --daemon &
+~/.screenlayout/rots.sh
+pulseaudio --start &
+mpd &
 exec xmonad

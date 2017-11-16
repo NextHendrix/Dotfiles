@@ -25,7 +25,7 @@ ncmpcpp_directory = ~/.config/ncmpcpp
 #
 ##### connection settings #####
 #
-mpd_host = /var/lib/mpd/socket
+mpd_host = localhost 
 #
 #mpd_port = 6600
 #
@@ -68,7 +68,7 @@ visualizer_output_name = "my_fifo"
 ##
 ## If you set format to 44100:16:2, make it 'yes'.
 ##
-visualizer_in_stereo = no
+visualizer_in_stereo = yes
 #
 ##
 ## Multiply received samples by given value. Very
@@ -95,7 +95,7 @@ visualizer_sync_interval = 30
 ##
 visualizer_type = ellipse
 #
-visualizer_look = ●●
+visualizer_look = .●
 #
 #visualizer_color = blue, cyan, green, yellow, magenta, red
 #
