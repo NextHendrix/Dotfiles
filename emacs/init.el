@@ -39,9 +39,10 @@
   (package-refresh-contents))
 
 (defvar init--mypackages '(magit
-		     ivy
-		     counsel
-		     flycheck))
+			   ivy
+			   counsel
+			   flycheck
+			   haskell-mode))
 
 (dolist (p init--mypackages) ; install my packages
   (when (not (package-installed-p p))
