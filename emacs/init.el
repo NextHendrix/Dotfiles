@@ -46,11 +46,13 @@
 			   ivy
 			   counsel
 			   flycheck
-			   haskell-mode))
+			   intero))
 
 (dolist (p init--mypackages) ; install my packages
   (when (not (package-installed-p p))
     (package-install p)))
+
+;; Fonts
 
 ;; Ivy Mode
 (require 'ivy)
@@ -66,6 +68,9 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 
+;; Haskell Mode
+(require 'intero)
+(add-hook 'haskell-mode-hook 'intero-mode)
 ;; Flycheck
 (global-flycheck-mode t)
 
