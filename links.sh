@@ -19,6 +19,7 @@ ln -sf ~/Dotfiles/termite/xterm-termite ~/.terminfo/x/
 ln -sf ~/Dotfiles/XMonad/xmonad.hs ~/.xmonad/
 ln -sf ~/Dotfiles/XMonad/xmobarrc ~/.xmobarrc
 ln -sf ~/Dotfiles/emacs/erc-tex.el ~/.emacs.d/lisp/
+ln -sf ~/Dotfiles/emacs/erc-settings.el ~/.emacs.d/lisp/
 ln -sf ~/Dotfiles/vimperator/vimperatorrc ~/.vimperatorrc
 ln -sf ~/Dotfiles/git/gitconfig ~/.gitconfig
 ln -sf ~/Dotfiles/ghci/ghci ~/.ghci

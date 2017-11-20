@@ -6,11 +6,15 @@
 ;;; Code:
 
 (require 'erc)
-(setq erc-user-full-name "NextHendrix"
-      erc-part-reason-various-alist '(("^$" "I just can't handle the banter..."))
-      erc-quit-reason-various-alist '(("^$" "tfw server goes down"))
-      erc-quit-reason 'erc-quit-reason-various
-      erc-part-reason 'erc-part-reason-various)
+(setq-default erc-user-full-name "NextHendrix"
+	      erc-nick "NextHendrix"
+	      erc-server "nexthendr.tk"
+	      erc-port "5555")
+(setq erc-interpret-controls-p t)
+(setq erc-interpret-mirc-color t)
 
+(add-hook 'erc-mode-hook 'erc-fill-disable)
+(add-hook 'erc-mode-hook 'visual-line-mode)
+     
 (provide 'erc-settings)
 ;;; erc-settings.el ends here

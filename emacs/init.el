@@ -14,6 +14,7 @@
 (setq initial-major-mode 'org-mode) ; scratch be org
 (setq initial-scratch-message "") ; empty scratch
 (setq vc-follow-symlinks t) ; don't prompt for following symlinks
+(add-to-list 'load-path "~/.emacs.d/lisp")
 
 ;; Stop emacs shitting files all over the place
 (setq make-backup-files nil) ; stop creating backup~ files
@@ -62,6 +63,10 @@
 
 ;; Flycheck
 (global-flycheck-mode t)
+
+;; ERC
+(require 'erc)
+(require 'erc-settings)
 
 (provide 'init)
 ;;; init.el ends here
