@@ -22,6 +22,10 @@
 (setq custom-file "~/.emacs.d/custom.el") ; stop polluting my init file
 (load custom-file 'noerror) ; and stop moaning about it
 
+;; GPG Signing
+(setq epa-pinentry-mode 'loopback)
+(pinentry-start)
+
 ;; Package stuff
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos)) ; add melpa

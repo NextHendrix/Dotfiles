@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir -p ~/{.config/{ncmpcpp,bspwm,sxhkd,termite,compton},.emacs.d/lisp/,.terminfo/{t,x},.xmonad/}
+mkdir -p ~/{.config/{ncmpcpp,bspwm,sxhkd,termite,compton},.emacs.d/lisp/,.terminfo/{t,x},.xmonad/,.gnupg/}
 ln -sf ~/Dotfiles/vim/vimrc ~/.vimrc
 ln -sf ~/Dotfiles/termite/config ~/.config/termite/
 ln -sf ~/Dotfiles/bspwm/bspwmrc ~/.config/bspwm/
@@ -23,3 +23,4 @@ ln -sf ~/Dotfiles/emacs/erc-settings.el ~/.emacs.d/lisp/
 ln -sf ~/Dotfiles/vimperator/vimperatorrc ~/.vimperatorrc
 ln -sf ~/Dotfiles/git/gitconfig ~/.gitconfig
 ln -sf ~/Dotfiles/ghci/ghci ~/.ghci
+ln -sf ~/Dotfiles/gpg/gpg-agent.conf ~/.gnupg/
