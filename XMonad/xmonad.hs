@@ -88,6 +88,7 @@ myKeys conf =
   , ("M-C-j", sendMessage $ BSP.ExpandTowards D)
   , ("M-C-k", sendMessage $ BSP.ExpandTowards U)
   , ("M-C-l", sendMessage $ BSP.ExpandTowards R)
+  , ("M-s", sendMessage $ BSP.Swap)
   ]
 
 editor :: String
