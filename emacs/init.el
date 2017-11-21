@@ -71,11 +71,15 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 
+;; SmartParens Mode
+(require 'smartparens-config)
+(add-hook 'prog-mode-hook 'smartparens-mode)
+
 ;; Haskell Mode
 (require 'intero)
 (add-hook 'haskell-mode-hook 'intero-mode)
 (add-hook 'haskell-mode-hook 'haskell-indent-mode)
-(add-hook 'haskell-mode-hook 'smartparens-mode)
+(add-hook 'haskell-mode-hook (lambda () (setq electric-indent-inhibit t)))
 
 ;; Flycheck
 (global-flycheck-mode t)
