@@ -53,7 +53,8 @@
     (package-install p)))
 
 ;; Fonts
-
+(set-face-attribute 'default nil :font "Fira Mono-11")
+(set-frame-font "Fira Mono-11" nil t)
 ;; Ivy Mode
 (require 'ivy)
 (ivy-mode 1) ; enable globally
