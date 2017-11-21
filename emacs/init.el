@@ -71,6 +71,8 @@
 ;; Haskell Mode
 (require 'intero)
 (add-hook 'haskell-mode-hook 'intero-mode)
+(add-hook 'haskell-mode-hook 'haskell-indentation-mode)
+
 ;; Flycheck
 (global-flycheck-mode t)
 
