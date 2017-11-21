@@ -46,6 +46,7 @@
 			   ivy
 			   counsel
 			   flycheck
+			   smartparens
 			   intero))
 
 (dolist (p init--mypackages) ; install my packages
@@ -73,7 +74,8 @@
 ;; Haskell Mode
 (require 'intero)
 (add-hook 'haskell-mode-hook 'intero-mode)
-(add-hook 'haskell-mode-hook 'haskell-indentation-mode)
+(add-hook 'haskell-mode-hook 'haskell-indent-mode)
+(add-hook 'haskell-mode-hook 'smartparens-mode)
 
 ;; Flycheck
 (global-flycheck-mode t)
