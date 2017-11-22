@@ -8,7 +8,8 @@
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
-
+(display-time-mode t)
+(setq display-time-24hr-format t)
 ;; Startup
 (setq inhibit-startup-screen t) ; no splash
 (setq initial-major-mode 'org-mode) ; scratch be org
@@ -47,7 +48,8 @@
 			   counsel
 			   flycheck
 			   smartparens
-			   intero))
+			   intero
+			   spacemacs-theme))
 
 (dolist (p init--mypackages) ; install my packages
   (when (not (package-installed-p p))
@@ -84,10 +86,15 @@
 ;; ERC
 (require 'erc)
 (require 'erc-settings)
+(erc-track-mode 0)
 
-;; Fonts
+;; Company Mode
+(company-mode t)
+
+;; Fonts & Themes
 (add-to-list 'default-frame-alist '(font . "Fira Mono-10"))
 (set-face-attribute 'default nil :font "Fira Mono-10")
+(load-theme 'spacemacs-dark)
 
 (provide 'init)
 ;;; init.el ends here
