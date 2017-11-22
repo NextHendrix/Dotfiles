@@ -45,8 +45,8 @@ launcherConfig :: XPConfig
 launcherConfig =
   def
   { font =
-      "xft:Fira Mono:pixelsize=13:antialias=true,xft:FontAwesome:pixelsize=11"
-  , height = 15
+      "xft:Fira Mono:pixelsize=14:antialias=true,xft:FontAwesome:pixelsize=14"
+  , height = 20
   , position = Bottom
   }
 

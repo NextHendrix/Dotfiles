@@ -4,8 +4,8 @@ xset r rate 200 100
 xmodmap ~/.Xmodmap
 xrdb ~/.Xresources
 xset -dpms s off
-emacs --daemon &
 ~/.screenlayout/rots.sh
 compton --config=/home/chris/.config/compton/compton.conf &
 ./.fehbg
+emacs --daemon &
 exec xmonad

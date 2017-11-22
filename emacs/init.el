@@ -53,8 +53,6 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-;; Fonts
-(set-face-attribute 'default nil :font "Fira Mono-10")
 
 ;; Ivy Mode
 (require 'ivy)
@@ -86,6 +84,10 @@
 ;; ERC
 (require 'erc)
 (require 'erc-settings)
+
+;; Fonts
+(add-to-list 'default-frame-alist '(font . "Fira Mono-10"))
+(set-face-attribute 'default nil :font "Fira Mono-10")
 
 (provide 'init)
 ;;; init.el ends here
