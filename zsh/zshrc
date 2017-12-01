@@ -1,54 +1,27 @@
-#!/usr/bin/zsh
-
-# for mememacs
-if [[ "$TERM" == "dumb" ]]
-then
-  unsetopt zle
-  unsetopt prompt_cr
-  unsetopt prompt_subst
-  if whence -w precmd >/dev/null; then
-      unfunction precmd
-  fi
-  if whence -w preexec >/dev/null; then
-      unfunction preexec
-  fi
-  PS1='$ '
-  return
-fi
-
-HISTFILE=~/.histfile
-HISTSIZE=100000
-SAVEHIST=100000
-setopt appendhistory autocd beep extendedglob nomatch notify
-bindkey -e
-# End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]} r:|[._-]=** r:|=**' 'l:|=* r:|=*'
+zstyle ':completion:*' max-errors 4 numeric
+zstyle ':completion:*' prompt 'Hmm, how about...'
 zstyle :compinstall filename '/home/chris/.zshrc'
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
-PROMPT='%F{white}%n%f@%F{yellow}%m%f %F{cyan}%1~%f %# '
-RPROMPT='[%F{yellow}%?%f]'
-EDITOR=emacsclient
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+# Lines configured by zsh-newuser-install
+autoload -Uz promptinit
+promptinit
+prompt clint
 
-alias svim="sudo -E vim"
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=100000
+setopt appendhistory autocd extendedglob notify
+unsetopt beep
+bindkey -e
+# End of lines configured by zsh-newuser-install
+
+# Aliases
+alias vim="sudo -E vim"
 alias ls="ls --color=auto"
-alias la="ls -a"
-alias l="ls -l"
-alias lla="ls -la"
-alias wpaplz="sudo rc-service wpa_supplicant restart"
-alias cbg="feh --bg-fill --randomize ~/Wallpapers"
-alias poof='ping -c5 google.com'
-alias wipa='watch -n0.2 ip a'
-alias fortune='fortune -a'
-alias nmplz="sudo rc-service NetworkManager restart"
-alias ixio="curl -F 'f:1=<-' ix.io"
-alias E="SUDO_EDITOR=\"emacsclient -t -a emacs\" sudoedit"
-alias e="emacsclient -nw"
-alias kbplz="setxkbmap gb -option compose:menu && xset r rate 150 200 && xmodmap ~/.Xmodmap"
-alias hear="mpv --no-video"
-alias chillax="mpv --no-video 'https://www.youtube.com/watch?v=AQBh9soLSkI'"
