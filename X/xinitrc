@@ -1,11 +1,1 @@
-feh --bg-fill --randomize ~/Wallpapers/
-setxkbmap gb -option compose:menu
-xset r rate 200 100
-xmodmap ~/.Xmodmap
-xrdb ~/.Xresources
-xset -dpms s off
-~/.screenlayout/rots.sh
-compton --config=/home/chris/.config/compton/compton.conf &
-./.fehbg
-emacs --daemon &
-exec xmonad
+exec startkde

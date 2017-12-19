@@ -10,6 +10,6 @@
 [credential]
 	helper = cache
 [core]
-	editor = emacsclient -nw
-[commit]
-	gpgsign = true
+	editor = emacs -nw
+[gui]
+	recentrepo = /home/chris/Dotfiles

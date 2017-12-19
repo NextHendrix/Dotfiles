@@ -12,7 +12,6 @@ compinit
 # Lines configured by zsh-newuser-install
 autoload -Uz promptinit
 promptinit
-prompt clint
 
 HISTFILE=~/.histfile
 HISTSIZE=100000
@@ -23,5 +22,5 @@ bindkey -e
 # End of lines configured by zsh-newuser-install
 
 # Aliases
-alias vim="sudo -E vim"
+alias svim="sudo -E vim"
 alias ls="ls --color=auto"

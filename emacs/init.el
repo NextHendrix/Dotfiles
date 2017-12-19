@@ -10,6 +10,7 @@
 (scroll-bar-mode 0)
 (display-time-mode t)
 (setq display-time-24hr-format t)
+(column-number-mode t)
 ;; Startup
 (setq inhibit-startup-screen t) ; no splash
 (setq initial-major-mode 'org-mode) ; scratch be org
@@ -49,7 +50,9 @@
 			   flycheck
 			   smartparens
 			   intero
-			   spacemacs-theme))
+			   spacemacs-theme
+			   hlint-refactor
+			   hindent))
 
 (dolist (p init--mypackages) ; install my packages
   (when (not (package-installed-p p))
@@ -64,6 +67,9 @@
 (global-set-key (kbd "C-x C-f") 'counsel-find-file) ; better open files
 (global-set-key (kbd "M-x") 'counsel-M-x) ; better run shit
 
+;; Flycheck
+(require 'flycheck)
+(global-flycheck-mode t)
 ;; Org Mode
 (require 'org)
 (define-key global-map "\C-cl" 'org-store-link)
@@ -75,26 +81,18 @@
 (add-hook 'prog-mode-hook 'smartparens-mode)
 
 ;; Haskell Mode
-(require 'intero)
-(add-hook 'haskell-mode-hook 'intero-mode)
 (add-hook 'haskell-mode-hook 'haskell-indent-mode)
-(add-hook 'haskell-mode-hook (lambda () (setq electric-indent-inhibit t)))
-
-;; Flycheck
-(global-flycheck-mode t)
-
+(add-hook 'haskell-mode-hook 'hlint-refactor-mode)
+(add-hook 'haskell-mode-hook 'haskell-interactive-mode)
+(add-hook 'haskell-mode-hook 'company-mode)
 ;; ERC
 (require 'erc)
 (require 'erc-settings)
 (erc-track-mode 0)
 
-;; Company Mode
-(company-mode t)
-
 ;; Fonts & Themes
-(add-to-list 'default-frame-alist '(font . "Fira Mono-10"))
-(set-face-attribute 'default nil :font "Fira Mono-10")
-(load-theme 'spacemacs-dark)
 
+(load-theme 'spacemacs-dark)
+(set-default-font "Fira Mono")
 (provide 'init)
 ;;; init.el ends here
