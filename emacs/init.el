@@ -84,9 +84,8 @@
 ;; Haskell Mode
 (add-hook 'haskell-mode-hook 'haskell-indent-mode)
 (add-hook 'haskell-mode-hook 'hlint-refactor-mode)
-(add-hook 'haskell-mode-hook 'haskell-interactive-mode)
 (add-hook 'haskell-mode-hook 'company-mode)
-
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 ;; ERC
 (require 'erc)
 (require 'erc-settings)

@@ -89,6 +89,7 @@ myKeys conf =
   , ("M-C-k", sendMessage $ BSP.ExpandTowards U)
   , ("M-C-l", sendMessage $ BSP.ExpandTowards R)
   , ("M-s", sendMessage $ BSP.Swap)
+  , ("<Print>", spawn "spectacle")
   , ("<XF86AudioRaiseVolume>", spawn "pamixer -u -i 5 --allow-boost")
   , ("<XF86AudioLowerVolume>", spawn "pamixer -d 5 --allow-boost")
   , ("<XF86AudioMute>", spawn "pamixer -t")
