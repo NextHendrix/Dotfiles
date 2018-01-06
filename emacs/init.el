@@ -11,6 +11,7 @@
 (display-time-mode t)
 (setq display-time-24hr-format t)
 (column-number-mode t)
+
 ;; Startup
 (setq inhibit-startup-screen t) ; no splash
 (setq initial-major-mode 'org-mode) ; scratch be org
@@ -85,6 +86,7 @@
 (add-hook 'haskell-mode-hook 'hlint-refactor-mode)
 (add-hook 'haskell-mode-hook 'haskell-interactive-mode)
 (add-hook 'haskell-mode-hook 'company-mode)
+
 ;; ERC
 (require 'erc)
 (require 'erc-settings)
@@ -92,7 +94,7 @@
 
 ;; Fonts & Themes
 
-(load-theme 'spacemacs-dark)
-(set-default-font "Fira Mono")
+;(load-theme 'spacemacs-dark)
+(set-default-font "Input Mono")
 (provide 'init)
 ;;; init.el ends here

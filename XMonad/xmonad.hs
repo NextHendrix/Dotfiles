@@ -45,8 +45,8 @@ launcherConfig :: XPConfig
 launcherConfig =
   def
   { font =
-      "xft:Fira Mono:pixelsize=14:antialias=true,xft:FontAwesome:pixelsize=14"
-  , height = 20
+      "xft:Fira Mono:size=10:antialias=true"
+  , height = 38
   , position = Bottom
   }
 
@@ -89,6 +89,11 @@ myKeys conf =
   , ("M-C-k", sendMessage $ BSP.ExpandTowards U)
   , ("M-C-l", sendMessage $ BSP.ExpandTowards R)
   , ("M-s", sendMessage $ BSP.Swap)
+  , ("<XF86AudioRaiseVolume>", spawn "pamixer -u -i 5 --allow-boost")
+  , ("<XF86AudioLowerVolume>", spawn "pamixer -d 5 --allow-boost")
+  , ("<XF86AudioMute>", spawn "pamixer -t")
+  , ("<XF86MonBrightnessUp>", spawn "light -A 10")
+  , ("<XF86MonBrightnessDown>", spawn "light -U 10")
   ]
 
 editor :: String
@@ -105,4 +110,4 @@ browser :: String
 browser = "firefox"
 
 myTerm :: String
-myTerm = "termite"
+myTerm = "urxvtc"

@@ -1,7 +1,6 @@
 [user]
 	name = NextHendrix
 	email = chris.jones.492@gmail.com
-	signingkey = 887E3E28549A81E926B26F9517D1CF30C58F8CD9
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
@@ -10,6 +9,6 @@
 [credential]
 	helper = cache
 [core]
-	editor = emacs -nw
+	editor = emacsclient -nw
 [gui]
 	recentrepo = /home/chris/Dotfiles

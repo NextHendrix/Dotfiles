@@ -1,6 +1,7 @@
 Config
-{ font = "xft:Fira Mono:pixelsize=14:antialias=true"
-, bgColor = "#282828"
+{ font = "xft:Input Mono:size=10:antialias=true"
+, bgColor = "#000000"
+, alpha = 0
 , fgColor = "#ebdbb2"
 , position = (Bottom)
 , lowerOnStart = True
@@ -10,9 +11,19 @@ Config
     , Run Swap [] 10
     , Run Date "%F %H:%M" "date" 10
     , Run StdinReader
+    , Run Battery [
+      "-t", "<acstatus>: <left>% - <timeleft>",
+	    "--",
+	    --"-c", "charge_full",
+	    "-O", "AC",
+	    "-o", "Bat",
+	    "-h", "green",
+	    "-l", "red"
+      ] 50
+    , Run Volume "default" "Master" [] 1
     ]
 , sepChar = "%"
 , alignSep = "}{"
 , template =
-    "%StdinReader% }{ %multicpu% | %memory% | %swap%   <fc=#d79921>%date%</fc>"
+    "%StdinReader% }{ %multicpu% | %memory% | %swap% | %default:Master% | %battery%  <fc=#d79922>%date%</fc>"
 }
