@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 mkdir -p ~/{.config/{ncmpcpp,bspwm,sxhkd,termite,compton},.emacs.d/lisp/,.terminfo/{t,x},.xmonad/,.gnupg/}
 ln -sf ~/Dotfiles/vim/vimrc ~/.vimrc
@@ -10,6 +10,7 @@ ln -sf ~/Dotfiles/zsh/zprofile ~/.zprofile
 ln -sf ~/Dotfiles/X/xinitrc ~/.xinitrc
 ln -sf ~/Dotfiles/X/xinitrc ~/.xprofile
 ln -sf ~/Dotfiles/X/Xmodmap ~/.Xmodmap
+ln -sf ~/Dotfiles/X/Xresources ~/.Xresources
 ln -sf ~/Dotfiles/emacs/init.el ~/.emacs.d/
 ln -sf ~/Dotfiles/compton/compton.conf ~/.config/compton/
 ln -sf ~/Dotfiles/tmux/tmux.conf ~/.tmux.conf
