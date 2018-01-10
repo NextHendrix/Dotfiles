@@ -7,8 +7,6 @@ ln -sf ~/Dotfiles/bspwm/bspwmrc ~/.config/bspwm/
 ln -sf ~/Dotfiles/sxhkd/sxhkdrc ~/.config/sxhkd/
 ln -sf ~/Dotfiles/zsh/zshrc ~/.zshrc
 ln -sf ~/Dotfiles/zsh/zprofile ~/.zprofile 
-ln -sf ~/Dotfiles/X/xinitrc ~/.xinitrc
-ln -sf ~/Dotfiles/X/xinitrc ~/.xprofile
 ln -sf ~/Dotfiles/X/Xmodmap ~/.Xmodmap
 ln -sf ~/Dotfiles/X/Xresources ~/.Xresources
 ln -sf ~/Dotfiles/emacs/init.el ~/.emacs.d/

@@ -24,6 +24,13 @@ main = do
     docks $
     def
     { manageHook = manageDocks <+> (isFullscreen --> doFullFloat) <+> manageHook def
+    , startupHook = do
+        spawn "urxvtd"
+        spawn "compton --config=/home/chris/.config/compton/compton.conf"
+        spawn "setxkbmap gb -option compose:ralt"
+        spawn "xmodmap /home/chris/.Xmodmap"
+        spawn "feh --bg-fill /home/chris/Wallpapers/1483925794872.jpg"
+        spawn "emacs --daemon"
     , layoutHook = smartBorders . avoidStruts $ myLayout
     , logHook =
         dynamicLogWithPP
@@ -45,7 +52,7 @@ launcherConfig :: XPConfig
 launcherConfig =
   def
   { font =
-      "xft:Fira Mono:size=10:antialias=true"
+      "xft:Input Mono:size=10:antialias=true"
   , height = 38
   , position = Bottom
   }
