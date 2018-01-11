@@ -82,17 +82,27 @@
 (add-hook 'prog-mode-hook 'smartparens-mode)
 
 ;; Haskell Mode
-(add-hook 'haskell-mode-hook 'haskell-indent-mode)
+(require 'haskell-mode)
+(require 'hindent)
+(require 'hlint-refactor)
+(require 'haskell-interactive-mode)
+(require 'haskell-process)
 (add-hook 'haskell-mode-hook 'hlint-refactor-mode)
+(add-hook 'haskell-mode-hook 'hindent-mode)
 (add-hook 'haskell-mode-hook 'company-mode)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+(setq haskell-stylish-on-save t)
+(setq hindent-reformat-buffer-on-save t)
+(setq haskell-tags-on-save t)
+(setq haskell-indentation-starter-offset 2)
+(setq haskell-process-type 'stack-ghci)
+
 ;; ERC
 (require 'erc)
 (require 'erc-settings)
 (erc-track-mode 0)
 
 ;; Fonts & Themes
-
 ;(load-theme 'spacemacs-dark)
 (set-default-font "Input Mono")
 (provide 'init)

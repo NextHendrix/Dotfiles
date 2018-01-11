@@ -11,6 +11,7 @@ import           XMonad.Prompt.Shell
 import qualified XMonad.StackSet                    as W
 import           XMonad.Util.EZConfig
 import           XMonad.Util.Run                    (spawnPipe)
+import System.Exit
 
 main :: IO ()
 main = do
@@ -27,16 +28,15 @@ main = do
     , startupHook = do
         spawn "urxvtd"
         spawn "compton --config=/home/chris/.config/compton/compton.conf"
-        spawn "setxkbmap gb -option compose:ralt"
-        spawn "xmodmap /home/chris/.Xmodmap"
         spawn "feh --bg-fill /home/chris/Wallpapers/1483925794872.jpg"
         spawn "emacs --daemon"
+        spawn "xrdb /home/chris/.Xresources"
     , layoutHook = smartBorders . avoidStruts $ myLayout
     , logHook =
         dynamicLogWithPP
           xmobarPP
           { ppOutput = hPutStrLn xmproc
-          , ppTitle = xmobarColor "green" "" . shorten 50
+          , ppTitle = xmobarColor "green" "" . shorten 80
           }
     , modMask = mod4Mask -- use windows key
     , terminal = myTerm
@@ -96,6 +96,7 @@ myKeys conf =
   , ("M-C-k", sendMessage $ BSP.ExpandTowards U)
   , ("M-C-l", sendMessage $ BSP.ExpandTowards R)
   , ("M-s", sendMessage $ BSP.Swap)
+  , ("M-S-q", io (exitWith ExitSuccess))
   , ("<Print>", spawn "spectacle")
   , ("<XF86AudioRaiseVolume>", spawn "pamixer -u -i 5 --allow-boost")
   , ("<XF86AudioLowerVolume>", spawn "pamixer -d 5 --allow-boost")
