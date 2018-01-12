@@ -1,7 +1,7 @@
 Config
 { font = "xft:Input Mono:size=10:antialias=true"
 , bgColor = "#000000"
-, alpha = 127
+, alpha = 193
 , fgColor = "#ebdbb2"
 , position = (Bottom)
 , lowerOnStart = True
