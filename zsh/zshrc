@@ -1,26 +1,9 @@
-# The following lines were added by compinstall
-
-zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
-zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]} r:|[._-]=** r:|=**' 'l:|=* r:|=*'
-zstyle ':completion:*' max-errors 4 numeric
-zstyle ':completion:*' prompt 'Hmm, how about...'
-zstyle :compinstall filename '/home/chris/.zshrc'
-
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-# Lines configured by zsh-newuser-install
-autoload -Uz promptinit
-promptinit
-
-HISTFILE=~/.histfile
-HISTSIZE=100000
-SAVEHIST=100000
-setopt appendhistory autocd extendedglob notify
-unsetopt beep
-bindkey -e
-# End of lines configured by zsh-newuser-install
+# Environment
+EDITOR="emacsclient -nw"
+SUDO_EDITOR="emacs"
 
 # Aliases
 alias svim="sudo -E vim"
 alias ls="ls --color=auto"
+alias e="emacsclient -nw"
+alias E="sudoedit"
