@@ -25,12 +25,6 @@ main = do
     docks $
     def
     { manageHook = manageDocks <+> (isFullscreen --> doFullFloat) <+> manageHook def
-    , startupHook = do
-        spawn "urxvtd"
-        spawn "compton --config=/home/chris/.config/compton/compton.conf"
-        spawn "feh --bg-fill /home/chris/Wallpapers/1483925794872.jpg"
-        spawn "emacs --daemon"
-        spawn "xrdb /home/chris/.Xresources"
     , layoutHook = smartBorders . avoidStruts $ myLayout
     , logHook =
         dynamicLogWithPP
@@ -52,7 +46,7 @@ launcherConfig :: XPConfig
 launcherConfig =
   def
   { font =
-      "xft:Input Mono:size=10:antialias=true"
+      "xft:Input Mono:size=10:antialias=true:hinting=full"
   , height = 38
   , position = Bottom
   }
@@ -101,8 +95,8 @@ myKeys conf =
   , ("<XF86AudioRaiseVolume>", spawn "pamixer -u -i 5 --allow-boost")
   , ("<XF86AudioLowerVolume>", spawn "pamixer -d 5 --allow-boost")
   , ("<XF86AudioMute>", spawn "pamixer -t")
-  , ("<XF86MonBrightnessUp>", spawn "light -A 10")
-  , ("<XF86MonBrightnessDown>", spawn "light -U 10")
+  , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10")
+  , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
   ]
 
 editor :: String

@@ -53,3 +53,10 @@ URxvt*color14:      #8abeb7
 URxvt*color7:       #d9d9d9
 URxvt*color15:      #ffffff
 
+! UI elements
+Emacs.menuBar: 0
+Emacs.toolBar: 0
+Emacs.verticalScrollBars: off
+! Font settings
+Emacs.FontBackend: xft,x
+Emacs.font: Input Mono-10
