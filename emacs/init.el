@@ -11,7 +11,7 @@
 (display-time-mode t)
 (setq display-time-24hr-format t)
 (column-number-mode t)
-
+(transient-mark-mode t)
 ;; Startup
 (setq inhibit-startup-screen t) ; no splash
 (setq initial-major-mode 'org-mode) ; scratch be org
@@ -50,7 +50,7 @@
 			   counsel
 			   flycheck
 			   smartparens
-			   intero
+			   haskell-mode
 			   spacemacs-theme
 			   hlint-refactor
 			   hindent))
@@ -73,9 +73,10 @@
 (global-flycheck-mode t)
 ;; Org Mode
 (require 'org)
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(setq org-log-done t)
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-iswitchb)
 
 ;; SmartParens Mode
 (require 'smartparens-config)
