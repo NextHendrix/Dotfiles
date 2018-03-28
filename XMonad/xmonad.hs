@@ -107,10 +107,10 @@ myWorkspaces =
   ["Control Centre", "Home", "Emacs", "Music", "Steam"] ++ (fmap show [5 .. 9])
 
 pBrowser :: String
-pBrowser = "firefox --private-window"
+pBrowser = "firefox-bin --private-window"
 
 browser :: String
-browser = "firefox"
+browser = "firefox-bin"
 
 myTerm :: String
 myTerm = "urxvtc"
