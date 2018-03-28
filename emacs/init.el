@@ -100,7 +100,7 @@
 
 ;; ERC
 (require 'erc)
-(require 'erc-settings)
+(require 'tls)
 (erc-track-mode 0)
 
 ;; Fonts & Themes
