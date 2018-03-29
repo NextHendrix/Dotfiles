@@ -1,6 +1,8 @@
 import           System.IO
 import           XMonad
 import qualified XMonad.Actions.Navigation2D        as N
+import XMonad.Config.Desktop
+import XMonad.Wallpaper
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
@@ -15,6 +17,7 @@ import System.Exit
 
 main :: IO ()
 main = do
+  setRandomWallpaper ["$HOME/Wallpapers"]
   xmproc <- spawnPipe "/usr/bin/xmobar /home/chris/.xmobarrc"
   xmonad $
     N.navigation2DP
