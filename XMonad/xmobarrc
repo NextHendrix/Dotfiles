@@ -1,5 +1,5 @@
 Config
-{ font = "xft:Input Mono:size=10:antialias=true"
+{ font = "xft:Input Mono:size=10:antialias=true:hinting=full"
 , bgColor = "#000000"
 , alpha = 193
 , fgColor = "#ebdbb2"
@@ -7,7 +7,7 @@ Config
 , lowerOnStart = True
 , commands =
     [ Run MultiCpu ["-L", "3", "-H", "50", "--normal", "#b8bb26", "--high", "#fb4934"] 10
-    , Run Memory ["-t", "Mem: <usedratio>%"] 10
+    , Run Memory ["-t", " <usedratio>%"] 10
     , Run Swap [] 10
     , Run Date "%F %H:%M" "date" 10
     , Run StdinReader
@@ -21,9 +21,10 @@ Config
 	    "-l", "red"
       ] 50
     , Run Volume "default" "Master" [] 1
+    , Run Wireless "wlp2s0" ["-t", "<essid> <quality>"] 10
     ]
 , sepChar = "%"
 , alignSep = "}{"
 , template =
-    "%StdinReader% }{ %multicpu% | %memory% | %swap% | %default:Master% | %battery%  <fc=#d79922>%date%</fc>"
+    "%StdinReader% }{ %wlp2s0wi% | %multicpu% | %memory% | %swap% | %default:Master% | %battery%  <fc=#d79922>%date%</fc>"
 }

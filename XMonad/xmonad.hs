@@ -1,19 +1,20 @@
+import           System.Exit
 import           System.IO
 import           XMonad
 import qualified XMonad.Actions.Navigation2D        as N
-import XMonad.Config.Desktop
-import XMonad.Wallpaper
+import           XMonad.Config.Desktop
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
-import qualified XMonad.Layout.BinarySpacePartition as BSP
+import           XMonad.Layout.BinarySpacePartition
+import           XMonad.Layout.Maximize
 import           XMonad.Layout.NoBorders            (smartBorders)
 import           XMonad.Prompt
 import           XMonad.Prompt.Shell
 import qualified XMonad.StackSet                    as W
 import           XMonad.Util.EZConfig
 import           XMonad.Util.Run                    (spawnPipe)
-import System.Exit
+import           XMonad.Wallpaper
 
 main :: IO ()
 main = do
@@ -33,7 +34,7 @@ main = do
         dynamicLogWithPP
           xmobarPP
           { ppOutput = hPutStrLn xmproc
-          , ppTitle = xmobarColor "green" "" . shorten 80
+          , ppTitle = xmobarColor "green" "" . shorten 70
           }
     , modMask = mod4Mask -- use windows key
     , terminal = myTerm
@@ -43,7 +44,7 @@ main = do
     , focusedBorderColor = "#FFFFFF"
     }
 
-myLayout = BSP.emptyBSP ||| Full
+myLayout = maximize emptyBSP ||| Full
 
 launcherConfig :: XPConfig
 launcherConfig =
@@ -87,12 +88,15 @@ myKeys conf =
   , ("M-S-7", windows $ W.shift "7")
   , ("M-S-8", windows $ W.shift "8")
   , ("M-S-9", windows $ W.shift "9")
-  , ("M-r", sendMessage BSP.Rotate)
-  , ("M-C-h", sendMessage $ BSP.ExpandTowards L)
-  , ("M-C-j", sendMessage $ BSP.ExpandTowards D)
-  , ("M-C-k", sendMessage $ BSP.ExpandTowards U)
-  , ("M-C-l", sendMessage $ BSP.ExpandTowards R)
-  , ("M-s", sendMessage $ BSP.Swap)
+  , ("M-r", sendMessage Rotate)
+  , ("M-a", sendMessage Balance)
+  , ("M-S-a", sendMessage Equalize)
+  , ("M-C-h", sendMessage $ ExpandTowards L)
+  , ("M-C-j", sendMessage $ ExpandTowards D)
+  , ("M-C-k", sendMessage $ ExpandTowards U)
+  , ("M-C-l", sendMessage $ ExpandTowards R)
+  , ("M-s", sendMessage $ Swap)
+  , ("M-m", withFocused (sendMessage . maximizeRestore))
   , ("M-S-q", io (exitWith ExitSuccess))
   , ("<Print>", spawn "spectacle")
   , ("<XF86AudioRaiseVolume>", spawn "pamixer -u -i 5 --allow-boost")
@@ -110,10 +114,10 @@ myWorkspaces =
   ["Control Centre", "Home", "Emacs", "Music", "Steam"] ++ (fmap show [5 .. 9])
 
 pBrowser :: String
-pBrowser = "firefox-bin --private-window"
+pBrowser = "firefox --private-window"
 
 browser :: String
-browser = "firefox-bin"
+browser = "firefox"
 
 myTerm :: String
 myTerm = "urxvtc"

@@ -53,7 +53,8 @@
 			   haskell-mode
 			   spacemacs-theme
 			   hlint-refactor
-			   hindent))
+			   hindent
+			   company))
 
 (dolist (p init--mypackages) ; install my packages
   (when (not (package-installed-p p))

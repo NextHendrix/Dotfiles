@@ -3,17 +3,19 @@ Xft.dpi: 180
 Xft.antialias: true
 Xft.hinting: full
 
+Xcursor.theme: gentoo-silver
+Xcursor.size: 48
 ! URxvt
 URxvt.scrollBar: false
 URxvt.perl-ext-common: default,clipboard,url-select
-URxvt.url-select.launcher: firefox-bin
+URxvt.url-select.launcher: firefox
 URxtv.url-select.underline: true
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.keysym.M-s: perl:keyboard-select:search
 URxvt.cursorBlink: true
 
 ! font
-URxvt.font: xft:Input Mono:size=11:antialias=true:hinting=full,xft:Symbola:size=10
+URxvt.font: xft:Input Mono:size=11:antialias=true:hinting=full
 
 ! special
 URxvt*depth: 32
