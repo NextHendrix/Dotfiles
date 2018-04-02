@@ -4,6 +4,7 @@ import           XMonad
 import qualified XMonad.Actions.Navigation2D        as N
 import           XMonad.Config.Desktop
 import           XMonad.Hooks.DynamicLog
+import XMonad.Util.SpawnOnce
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
 import           XMonad.Layout.BinarySpacePartition
@@ -30,6 +31,12 @@ main = do
     def
     { manageHook = manageDocks <+> (isFullscreen --> doFullFloat) <+> manageHook def
     , layoutHook = smartBorders . avoidStruts $ myLayout
+    , startupHook = do
+        spawn "setxkbmap gb -option compose:ralt"
+        spawn "xmodmap .Xmodmap"
+        spawn "emacs --daemon &"
+        spawn "compton --config=/home/chris/.config/compton/compton.conf &"
+        spawn "urxvtd &"
     , logHook =
         dynamicLogWithPP
           xmobarPP
