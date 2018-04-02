@@ -5,8 +5,8 @@ ln -sf ~/Dotfiles/vim/vimrc ~/.vimrc
 ln -sf ~/Dotfiles/termite/config ~/.config/termite/
 ln -sf ~/Dotfiles/bspwm/bspwmrc ~/.config/bspwm/
 ln -sf ~/Dotfiles/sxhkd/sxhkdrc ~/.config/sxhkd/
-#ln -sf ~/Dotfiles/zsh/zshrc ~/.zshrc
-#ln -sf ~/Dotfiles/zsh/zprofile ~/.zprofile 
+ln -sf ~/Dotfiles/zsh/zshrc ~/.zshrc
+ln -sf ~/Dotfiles/zsh/zprofile ~/.zprofile 
 ln -sf ~/Dotfiles/X/Xmodmap ~/.Xmodmap
 ln -sf ~/Dotfiles/X/Xresources ~/.Xresources
 ln -sf ~/Dotfiles/emacs/init.el ~/.emacs.d/
