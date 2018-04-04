@@ -105,7 +105,7 @@
 (erc-track-mode 0)
 
 ;; Fonts & Themes
-;(load-theme 'spacemacs-dark)
+(load-theme 'spacemacs-light)
 (set-default-font "Input Mono")
 (provide 'init)
 ;;; init.el ends here

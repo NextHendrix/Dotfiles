@@ -5,6 +5,7 @@ Xft.hinting: full
 
 Xcursor.theme: gentoo-silver
 Xcursor.size: 48
+
 ! URxvt
 URxvt.scrollBar: false
 URxvt.perl-ext-common: default,clipboard,url-select
@@ -15,7 +16,7 @@ URxvt.keysym.M-s: perl:keyboard-select:search
 URxvt.cursorBlink: true
 
 ! font
-URxvt.font: xft:Input Mono:size=11:antialias=true:hinting=full
+URxvt.font: xft:Input Mono Narrow:size=11:antialias=true:hinting=full:style=Extra Light
 
 ! special
 URxvt*depth: 32
@@ -54,11 +55,3 @@ URxvt*color14:      #8abeb7
 ! white
 URxvt*color7:       #d9d9d9
 URxvt*color15:      #ffffff
-
-! UI elements
-Emacs.menuBar: 0
-Emacs.toolBar: 0
-Emacs.verticalScrollBars: off
-! Font settings
-Emacs.FontBackend: xft,x
-Emacs.font: Input Mono-10

@@ -1,21 +1,23 @@
-import           System.Exit
-import           System.IO
-import           XMonad
-import qualified XMonad.Actions.Navigation2D        as N
-import           XMonad.Hooks.DynamicLog
-import           XMonad.Hooks.ManageDocks
-import           XMonad.Hooks.ManageHelpers
-import           XMonad.Layout.BinarySpacePartition
-import           XMonad.Layout.Maximize
-import           XMonad.Layout.NoBorders            (smartBorders)
-import           XMonad.Layout.PerWorkspace
-import           XMonad.Layout.SimplestFloat
-import           XMonad.Prompt
-import           XMonad.Prompt.Shell
-import qualified XMonad.StackSet                    as W
-import           XMonad.Util.EZConfig
-import           XMonad.Util.Run                    (spawnPipe)
-import           XMonad.Wallpaper
+import System.Exit
+import System.IO
+import XMonad
+import qualified XMonad.Actions.Navigation2D as N
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
+import XMonad.Layout.BinarySpacePartition
+import XMonad.Layout.Maximize
+import XMonad.Layout.NoBorders (smartBorders)
+import XMonad.Layout.PerWorkspace
+
+-- import XMonad.Layout.SimpleDecoration
+import XMonad.Layout.SimplestFloat
+import XMonad.Prompt
+import XMonad.Prompt.Shell
+import qualified XMonad.StackSet as W
+import XMonad.Util.EZConfig
+import XMonad.Util.Run (spawnPipe)
+import XMonad.Wallpaper
 
 main :: IO ()
 main = do
@@ -31,18 +33,14 @@ main = do
     def
       { manageHook =
           manageDocks <+> (isFullscreen --> doFullFloat) <+> manageHook def
-      , layoutHook =
-          onWorkspace
-            "Music"
-            (smartBorders . avoidStruts $ (maximize simplestFloat) ||| Full) $
-          smartBorders . avoidStruts $ myLayout
+      , layoutHook = onWorkspace "Music" simplestFloat myLayout
       , startupHook =
-          do spawn "setxkbmap gb -option compose:ralt"
+          do spawn "setxkbmap gb -option compose:ralt &&"
              spawn "emacs --daemon &"
              spawn "compton --config=/home/chris/.config/compton/compton.conf &"
              spawn "urxvtd &"
-             spawn "xmodmap .Xmodmap"
-             spawn "xset r rate 175 175"
+             spawn "xmodmap .Xmodmap &&"
+             spawn "xset r rate 175 175 &&"
              spawn "xrdb .Xresources"
       , logHook =
           dynamicLogWithPP
@@ -58,7 +56,7 @@ main = do
       , focusedBorderColor = "#FFFFFF"
       }
 
-myLayout = maximize emptyBSP ||| Full
+myLayout = smartBorders . avoidStruts $ maximize emptyBSP ||| Full
 
 launcherConfig :: XPConfig
 launcherConfig =
@@ -109,14 +107,14 @@ myKeys conf =
     , ("M-C-j", sendMessage $ ExpandTowards D)
     , ("M-C-k", sendMessage $ ExpandTowards U)
     , ("M-C-l", sendMessage $ ExpandTowards R)
-    , ("M-s", sendMessage $ Swap)
+    , ("M-s", sendMessage Swap)
     , ("M-m", withFocused (sendMessage . maximizeRestore))
-    , ("M-S-q", io (exitWith ExitSuccess))
+    , ("M-S-q", io exitSuccess)
     , ("<Print>", spawn "spectacle")
     , ("<XF86AudioRaiseVolume>", spawn "pamixer -u -i 5 --allow-boost")
     , ("<XF86AudioLowerVolume>", spawn "pamixer -d 5 --allow-boost")
     , ("<XF86AudioMute>", spawn "pamixer -t")
-    , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10")
+    , ("<XF86MonBrightnessUp>", spawn "xbacklight -INC 10")
     , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
     ]
 
@@ -125,7 +123,8 @@ editor = "emacsclient -c"
 
 myWorkspaces :: [String]
 myWorkspaces =
-  ["Control Centre", "Home", "Emacs", "Music", "Steam"] ++ (fmap show [5 .. 9])
+  ["Control Centre", "Home", "Emacs", "Music", "Steam"] ++
+  fmap show [5 .. 9 :: Integer]
 
 pBrowser :: String
 pBrowser = "firefox --private-window"
