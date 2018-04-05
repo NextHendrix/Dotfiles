@@ -1,7 +1,6 @@
 Config
-{ font = "xft:Input Mono:size=10:antialias=true:hinting=full"
+{ font = "xft:Input Mono Narrow:size=10:antialias=true:hinting=full:style=Extra Light,FontAwesomeSymbola"
 , bgColor = "#000000"
-, alpha = 193
 , fgColor = "#ebdbb2"
 , position = (Bottom)
 , lowerOnStart = True

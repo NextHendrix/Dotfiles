@@ -61,7 +61,7 @@ myLayout = smartBorders . avoidStruts $ maximize emptyBSP ||| Full
 launcherConfig :: XPConfig
 launcherConfig =
   def
-    { font = "xft:Input Mono:size=10:antialias=true:hinting=full"
+    { font = "xft:Input Mono Narrow:size=10:antialias=true:hinting=full:style=Extra Light,xft:Symbola"
     , height = 38
     , position = Bottom
     }
