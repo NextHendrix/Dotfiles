@@ -59,7 +59,7 @@
  '(haskell-interactive-popup-errors nil)
  '(haskell-mode-hook
    (quote
-    (flyspell-prog-mode haskell-decl-scan-mode haskell-indentation-mode highlight-uses-mode imenu-add-menubar-index interactive-haskell-mode hlint-haskell-mode-hook)))
+    (flyspell-prog-mode haskell-decl-scan-mode haskell-indentation-mode highlight-uses-mode imenu-add-menubar-index interactive-haskell-mode hlint-haskell-mode-hook)) t)
  '(haskell-process-suggest-hoogle-imports t)
  '(haskell-process-suggest-remove-import-lines t)
  '(ido-everywhere t)
@@ -68,7 +68,7 @@
  '(package-enable-at-startup t)
  '(package-selected-packages
    (quote
-    (erc-colorize guru-mode zenburn-theme pdf-tools magit company-ghci company-ghc company hindent hlint-refactor haskell-mode flycheck)))
+    (auctex-lua auctex erc-colorize guru-mode zenburn-theme pdf-tools magit company-ghci company-ghc company hindent hlint-refactor haskell-mode flycheck)))
  '(pdf-tools-enabled-modes
    (quote
     (pdf-history-minor-mode pdf-isearch-minor-mode pdf-links-minor-mode pdf-misc-minor-mode pdf-outline-minor-mode pdf-misc-size-indication-minor-mode pdf-misc-menu-bar-minor-mode pdf-annot-minor-mode pdf-sync-minor-mode pdf-misc-context-menu-minor-mode pdf-cache-prefetch-minor-mode pdf-occur-global-minor-mode pdf-virtual-global-minor-mode)))
@@ -103,14 +103,17 @@
 (ido-mode t)
 (pdf-tools-install)
 (menu-bar-mode -1)
-(setq haskell-font-lock-symbols t)
+
 
 ;; Haskell Mode
+(require 'haskell-mode)
 (defun nh-haskell-interactive-mode-config ()
   "Use in haskell-interactive-mode hook."
   (local-set-key (kbd "C-c C-b") 'haskell-interactive-switch-back)
   (local-set-key (kbd "C-c C-z") nil))
 (add-hook 'haskell-interactive-mode-hook 'nh-haskell-interactive-mode-config)
+(setq haskell-font-lock-symbols t)
+
 (message "fuckin nice one mate!")
 (provide 'init)
 ;;; init.el ends here
