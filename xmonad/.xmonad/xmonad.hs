@@ -70,7 +70,7 @@ main = do
       }
 
 myLayout =
-  mkToggle1 NBFULL $ renamed [Replace "BSP"] $  hiddenWindows $  avoidStruts $ maximize emptyBSP
+    hiddenWindows $ mkToggle1 NBFULL $ renamed [Replace "BSP"] $ smartBorders . avoidStruts $ maximize emptyBSP
 
 launcherConfig :: XPConfig
 launcherConfig =
