@@ -9,6 +9,4 @@
 [credential]
 	helper = cache
 [core]
-	editor = emacsclient -nw
-[gui]
-	recentrepo = /home/chris/Dotfiles
+	editor = vim

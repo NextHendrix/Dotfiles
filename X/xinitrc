@@ -1,8 +1,0 @@
-xset r rate 175 150
-setxkbmap gb -option compose:ralt
-xmodmap .Xmodmap
-xrdb .Xresources
-feh --bg-fill Wallpapers/1483925794872.jpg&
-compton --config=/home/chris/.config/compton/compton.conf&
-urxvtd&
-exec xmonad
