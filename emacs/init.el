@@ -1,15 +1,20 @@
 ;;; init.el -- Let's trust customize edition - NextHendrix - Started 04-04-2018
 ;;; Commentary:
-;; Now stop pissing about and revise for your exams you twat
+;; Stop pissing about and revise for your exams you twat
+;; Customise isn't totally trustworthy, package stuff rejigged somewhat to actually work
 
 ;;; Code:
-
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
+
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+			 ("melpa" . "https://melpa.org/packages/")))
+(unless package-archive-contents
+  (package-refresh-contents))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -29,7 +34,6 @@
  '(custom-safe-themes
    (quote
     ("e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
- '(display-battery-mode t)
  '(erc-modules
    (quote
     (autojoin button completion dcc fill irccontrols keep-place list match menu move-to-prompt netsplit networks noncommands notifications readonly ring scrolltobottom smiley stamp spelling)))
@@ -61,10 +65,6 @@
  '(ido-everywhere t)
  '(inhibit-startup-screen t)
  '(linum-format (quote dynamic))
- '(package-archives
-   (quote
-    (("gnu" . "http://elpa.gnu.org/packages/")
-     ("melpa" . "https://melpa.org/packages/"))))
  '(package-enable-at-startup t)
  '(package-selected-packages
    (quote
@@ -94,17 +94,23 @@
  '(flycheck-error ((t (:underline (:color "Red1" :style wave) :slant italic :weight extra-bold))))
  '(flycheck-warning ((t (:underline "DarkOrange" :slant italic :weight semi-bold)))))
 
+(dolist (package package-selected-packages)
+  (unless (package-installed-p package)
+    (package-install package)))
+
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (autoload 'ibuffer "ibuffer" "List Buffers." t)
 (ido-mode t)
 (pdf-tools-install)
 (menu-bar-mode -1)
 (setq haskell-font-lock-symbols t)
+
 ;; Haskell Mode
 (defun nh-haskell-interactive-mode-config ()
   "Use in haskell-interactive-mode hook."
   (local-set-key (kbd "C-c C-b") 'haskell-interactive-switch-back)
   (local-set-key (kbd "C-c C-z") nil))
 (add-hook 'haskell-interactive-mode-hook 'nh-haskell-interactive-mode-config)
+(message "fuckin nice one mate!")
 (provide 'init)
 ;;; init.el ends here
