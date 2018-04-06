@@ -1,0 +1,5 @@
+# NextHendrix Dotfiles .gitignore
+
+emacs/.emacs.d/elpa/**
+xmonad/.xmonad/**
+!xmonad/.xmonad/xmonad.hs
