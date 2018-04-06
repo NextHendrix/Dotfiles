@@ -2,6 +2,7 @@
 
 emacs/.emacs.d/**
 !emacs/.emacs.d/init.el
-xmonad/.xmonad/**
-!xmonad/.xmonad/xmonad.hs
+xmonad-profunctor/.xmonad/**
+xmonad-monoid/.xmonad/**
+!**/xmonad.hs
 

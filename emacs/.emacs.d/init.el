@@ -59,10 +59,11 @@
  '(haskell-interactive-popup-errors nil)
  '(haskell-mode-hook
    (quote
-    (flyspell-prog-mode haskell-decl-scan-mode haskell-indentation-mode highlight-uses-mode imenu-add-menubar-index interactive-haskell-mode hlint-haskell-mode-hook)) t)
+    (flyspell-prog-mode haskell-decl-scan-mode haskell-indentation-mode highlight-uses-mode imenu-add-menubar-index interactive-haskell-mode hlint-haskell-mode-hook)))
  '(haskell-process-suggest-hoogle-imports t)
  '(haskell-process-suggest-remove-import-lines t)
  '(ido-everywhere t)
+ '(inhibit-startup-echo-area-message "chris")
  '(inhibit-startup-screen t)
  '(linum-format (quote dynamic))
  '(package-enable-at-startup t)

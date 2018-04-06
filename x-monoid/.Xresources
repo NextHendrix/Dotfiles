@@ -4,7 +4,7 @@ Xft.antialias: true
 Xft.hinting: full
 
 Xcursor.theme: gentoo-silver
-Xcursor.size: 48
+Xcursor.size: 32
 
 ! URxvt
 URxvt.scrollBar: false

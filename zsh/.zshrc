@@ -13,11 +13,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# Load Prompt
-autoload -Uz promptinit
-promptinit
-prompt gentoo
-
 # Aliases
 alias nmplz="sudo rc-service NetworkManager restart"
 alias svim="sudo -E vim"
@@ -27,3 +22,6 @@ alias ls="ls -h --color=auto"
 alias du="du -h"
 alias df="df -h"
 alias wipa="watch -n0.2 -- ip a"
+
+# Source theme
+source ~/.minimal.zsh

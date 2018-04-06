@@ -1,0 +1,29 @@
+Config
+{ font = "xft:Input Sans Narrow:size=10:antialias=true:hinting=full:style=Extra Light,FontAwesome,Symbola"
+, bgColor = "#000000"
+, fgColor = "#ebdbb2"
+, position = (Bottom)
+, lowerOnStart = True
+, commands =
+    [ Run MultiCpu ["-L", "3", "-H", "50", "--normal", "#b8bb26", "--high", "#fb4934"] 10
+    , Run Memory ["-t", " <usedratio>%"] 10
+    , Run Swap [] 10
+    , Run Date "%F %H:%M" "date" 10
+    , Run StdinReader
+    , Run Battery [
+      "-t", "<acstatus>: <left>% - <timeleft>",
+	    "--",
+	    --"-c", "charge_full",
+	    "-O", "AC",
+	    "-o", "Bat",
+	    "-h", "green",
+	    "-l", "red"
+      ] 50
+    , Run Volume "default" "Master" [] 1
+    , Run Wireless "wlp2s0" ["-t", "<essid> <quality>"] 10
+    ]
+, sepChar = "%"
+, alignSep = "}{"
+, template =
+    "%StdinReader% }{ %wlp2s0wi% | %multicpu% | %memory% | %swap% | %default:Master% | %battery%  <fc=#d79922>%date%</fc>"
+}

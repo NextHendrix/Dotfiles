@@ -22,7 +22,6 @@ import           XMonad.Wallpaper
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.Renamed
-import XMonad.Util.Loggers
 import XMonad.Prompt.ConfirmPrompt
 
 navConf = def {N.layoutNavigation = [("BSP", N.hybridNavigation)]}
@@ -70,7 +69,7 @@ main = do
       }
 
 myLayout =
-    hiddenWindows $ mkToggle1 NBFULL $ renamed [Replace "BSP"] $ smartBorders . avoidStruts $ maximize emptyBSP
+    renamed [Replace "BSP"] $ smartBorders . avoidStruts $ hiddenWindows $ mkToggle1 NBFULL $ maximize emptyBSP
 
 launcherConfig :: XPConfig
 launcherConfig =
