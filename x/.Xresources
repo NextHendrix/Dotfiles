@@ -1,5 +1,5 @@
 ! XFT
-Xft.dpi: 180
+!Xft.dpi: 180
 Xft.antialias: true
 Xft.hinting: full
 
