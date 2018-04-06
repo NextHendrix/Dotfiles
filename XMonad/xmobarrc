@@ -1,5 +1,5 @@
 Config
-{ font = "xft:Input Mono Narrow:size=10:antialias=true:hinting=full:style=Extra Light,FontAwesomeSymbola"
+{ font = "xft:Input Sans Narrow:size=10:antialias=true:hinting=full:style=Extra Light,FontAwesome,Symbola"
 , bgColor = "#000000"
 , fgColor = "#ebdbb2"
 , position = (Bottom)

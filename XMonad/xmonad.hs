@@ -1,52 +1,64 @@
-import System.Exit
-import System.IO
-import XMonad
-import qualified XMonad.Actions.Navigation2D as N
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageHelpers
-import XMonad.Layout.BinarySpacePartition
-import XMonad.Layout.Maximize
-import XMonad.Layout.NoBorders (smartBorders)
-import XMonad.Layout.PerWorkspace
+import           System.Exit
+import           System.IO
+import           XMonad
+import qualified XMonad.Actions.Navigation2D        as N
+import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.EwmhDesktops
+import           XMonad.Hooks.ManageDocks
+import           XMonad.Hooks.ManageHelpers
+import           XMonad.Hooks.Place
+import           XMonad.Layout.BinarySpacePartition
+import           XMonad.Layout.Hidden
+import           XMonad.Layout.Maximize
+import           XMonad.Layout.NoBorders
+import           XMonad.Prompt
+import           XMonad.Prompt.Shell
+import XMonad.Prompt.Unicode
+import qualified XMonad.StackSet                    as W
+import           XMonad.Util.EZConfig
+import           XMonad.Util.Run               
+import           XMonad.Util.SpawnOnce
+import           XMonad.Wallpaper
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
+import XMonad.Layout.Renamed
+import XMonad.Util.Loggers
+import XMonad.Prompt.ConfirmPrompt
 
--- import XMonad.Layout.SimpleDecoration
-import XMonad.Layout.SimplestFloat
-import XMonad.Prompt
-import XMonad.Prompt.Shell
-import qualified XMonad.StackSet as W
-import XMonad.Util.EZConfig
-import XMonad.Util.Run (spawnPipe)
-import XMonad.Wallpaper
+navConf = def {N.layoutNavigation = [("BSP", N.hybridNavigation)]}
 
 main :: IO ()
 main = do
   setRandomWallpaper ["$HOME/Wallpapers"]
   xmproc <- spawnPipe "/usr/bin/xmobar /home/chris/.xmobarrc"
   xmonad $
-    N.navigation2DP
-      def
+    N.withNavigation2DConfig navConf $
+    N.additionalNav2DKeysP
       ("k", "h", "j", "l")
       [("M-", N.windowGo), ("M-S-", N.windowSwap)]
       False $
     docks $
+    ewmh $
     def
       { manageHook =
-          manageDocks <+> (isFullscreen --> doFullFloat) <+> manageHook def
-      , layoutHook = onWorkspace "Music" simplestFloat myLayout
+          placeHook simpleSmart <+>
+          manageDocks <+>
+          (isFullscreen --> doFullFloat) <+>
+          (isDialog --> doCenterFloat) <+> manageHook def
+      , layoutHook = myLayout
       , startupHook =
-          do spawn "setxkbmap gb -option compose:ralt &&"
-             spawn "emacs --daemon &"
+          do spawn
+               "setxkbmap gb -option compose:ralt && xmodmap ~/.Xmodmap && xset r rate 175 175"
+             spawnOnce "emacs --daemon &"
              spawn "compton --config=/home/chris/.config/compton/compton.conf &"
-             spawn "urxvtd &"
-             spawn "xmodmap .Xmodmap &&"
-             spawn "xset r rate 175 175 &&"
+             spawnOnce "urxvtd &"
              spawn "xrdb .Xresources"
       , logHook =
           dynamicLogWithPP
             xmobarPP
               { ppOutput = hPutStrLn xmproc
               , ppTitle = xmobarColor "green" "" . shorten 70
+              -- , ppExtras = [loadAvg, battery]
               }
       , modMask = mod4Mask -- use windows key
       , terminal = myTerm
@@ -54,14 +66,17 @@ main = do
       , workspaces = myWorkspaces
       , normalBorderColor = "#000000"
       , focusedBorderColor = "#FFFFFF"
+      , handleEventHook = handleEventHook def <+> fullscreenEventHook
       }
 
-myLayout = smartBorders . avoidStruts $ maximize emptyBSP ||| Full
+myLayout =
+  mkToggle1 NBFULL $ renamed [Replace "BSP"] $  hiddenWindows $  avoidStruts $ maximize emptyBSP
 
 launcherConfig :: XPConfig
 launcherConfig =
   def
-    { font = "xft:Input Mono Narrow:size=10:antialias=true:hinting=full:style=Extra Light,xft:Symbola"
+    { font = "xft:Input Sans Narrow:size=10:antialias=true:hinting=full:style=Extra Light"
+  -- { font ="xft:Input Mono Narrow:size=10:antialias=true:hinting=full:style=Extra Light,xft:FontAwesome"
     , height = 38
     , position = Bottom
     }
@@ -78,7 +93,7 @@ myKeys conf =
     , ("M-S-<Space>", sendMessage ToggleStruts)
     , ("M-q", kill)
     , ("M-S-r", spawn "xmonad --recompile && xmonad --restart")
-    , ("M-e", sendMessage NextLayout)
+    , ("M-f", sendMessage $ Toggle NBFULL)
     , ("M-t", withFocused $ windows . W.sink)
     , ("M-`", windows $ W.greedyView "Control Centre")
     , ("M-1", windows $ W.greedyView "Home")
@@ -101,7 +116,7 @@ myKeys conf =
     , ("M-S-8", windows $ W.shift "8")
     , ("M-S-9", windows $ W.shift "9")
     , ("M-r", sendMessage Rotate)
-    , ("M-a", sendMessage Balance)
+    , ("M-p", sendMessage Balance)
     , ("M-S-a", sendMessage Equalize)
     , ("M-C-h", sendMessage $ ExpandTowards L)
     , ("M-C-j", sendMessage $ ExpandTowards D)
@@ -109,7 +124,10 @@ myKeys conf =
     , ("M-C-l", sendMessage $ ExpandTowards R)
     , ("M-s", sendMessage Swap)
     , ("M-m", withFocused (sendMessage . maximizeRestore))
-    , ("M-S-q", io exitSuccess)
+    , ("M-S-q", confirmPrompt launcherConfig "exit" $ io exitSuccess)
+    , ("M-u", unicodePrompt launcherConfig)
+    , ("M-o", withFocused hideWindow)
+    , ("M-S-o", popNewestHiddenWindow)
     , ("<Print>", spawn "spectacle")
     , ("<XF86AudioRaiseVolume>", spawn "pamixer -u -i 5 --allow-boost")
     , ("<XF86AudioLowerVolume>", spawn "pamixer -d 5 --allow-boost")
