@@ -47,6 +47,11 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+;; Counsel
+(require 'counsel)
+(counsel-mode t)
+(setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
 ;; IBuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (autoload 'ibuffer "ibuffer" "List Buffers." t)
