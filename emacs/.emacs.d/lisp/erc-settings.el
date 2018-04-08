@@ -31,6 +31,10 @@
   "Sends output of date to current channel."
   (erc-cmd-EXEC "date"))
 
+;; erc-image
+(require 'erc-image)
+(add-to-list 'erc-modules 'image)
+(erc-update-modules)
 
 (provide 'erc-settings)
 ;;; erc-settings.el ends here

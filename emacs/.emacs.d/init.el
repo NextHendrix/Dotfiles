@@ -36,7 +36,7 @@
     ("e11569fd7e31321a33358ee4b232c2d3cf05caccd90f896e1df6cab228191109" default)))
  '(package-selected-packages
    (quote
-    (auctex auctex-lua counsel ivy magit guru-mode pdf-tools company company-ghc company-ghci haskell-mode flycheck hindent hlint-refactor zenburn-theme sr-speedbar))))
+    (erc-image auctex auctex-lua counsel ivy magit guru-mode pdf-tools company company-ghc company-ghci haskell-mode flycheck hindent hlint-refactor zenburn-theme sr-speedbar))))
 ;; And fonts please
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
