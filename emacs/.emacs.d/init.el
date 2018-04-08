@@ -3,6 +3,9 @@
 ;; So long and thanks for all the fish.
 
 ;;; Code:
+;; Set load path for extra stuff
+(add-to-list 'load-path "~/.emacs.d/lisp")
+
 ;; Package memery
 (require 'package)
 (package-initialize)
@@ -82,11 +85,7 @@
 (setq haskell-font-lock-symbols t)
 
 ;; ERC
-(setq erc-nick "nh")
-(setq erc-server "finickitively.co.uk")
-(setq erc-port 5555)
-(setq erc-prompt ">")
-(setq erc-user-full-name "NextHendrix")
+(require 'erc-settings)
 
 ;; Prog Mode
 (add-hook 'prog-mode-hook 'linum-mode)
