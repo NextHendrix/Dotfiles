@@ -10,12 +10,15 @@ Config
     , Run Swap [] 10
     , Run Date "%F %H:%M" "date" 10
     , Run StdinReader
+    , Run CoreTemp ["-t", "<core0>°C",
+                    "-L", "40", "-H", "60",
+		    "-l","lightblue","-n","gray90","-h","red"] 10
     , Run Battery [
-      "-t", "<acstatus>: <left>% - <timeleft>",
+      "-t", "<acstatus> <left>% - <timeleft>",
 	    "--",
-	    --"-c", "charge_full",
-	    "-O", "AC",
-	    "-o", "Bat",
+	    --"-c", "",
+	    "-O", "",
+	    "-o", "",
 	    "-h", "green",
 	    "-l", "red"
       ] 50
@@ -25,5 +28,5 @@ Config
 , sepChar = "%"
 , alignSep = "}{"
 , template =
-    "%StdinReader% }{ %wlp2s0wi% | %multicpu% | %memory% | %swap% | %default:Master% | %battery%  <fc=#d79922>%date%</fc>"
+    "%StdinReader% }{ %wlp2s0wi% | %multicpu% %coretemp%| %memory% | %swap% | %default:Master% | %battery%  <fc=#d79922>%date%</fc>"
 }
