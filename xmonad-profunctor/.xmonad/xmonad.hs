@@ -48,9 +48,9 @@ main = do
       , startupHook =
           do spawn
                "setxkbmap gb -option compose:ralt && xmodmap ~/.Xmodmap && xset r rate 175 175"
-             spawnOnce "emacs --daemon &"
+             spawn "emacs --daemon &"
              spawn "compton --config=/home/chris/.config/compton/compton.conf &"
-             spawnOnce "urxvtd &"
+             spawn "urxvtd &"
              spawn "xrdb .Xresources"
       , logHook =
           dynamicLogWithPP
@@ -131,7 +131,7 @@ myKeys conf =
     , ("<XF86AudioRaiseVolume>", spawn "pamixer -u -i 5 --allow-boost")
     , ("<XF86AudioLowerVolume>", spawn "pamixer -d 5 --allow-boost")
     , ("<XF86AudioMute>", spawn "pamixer -t")
-    , ("<XF86MonBrightnessUp>", spawn "xbacklight -INC 10")
+    , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10")
     , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
     ]
 

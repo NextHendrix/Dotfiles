@@ -16,7 +16,7 @@ URxvt.keysym.M-s: perl:keyboard-select:search
 URxvt.cursorBlink: true
 
 ! font
-URxvt.font: xft:Input Mono Narrow:size=11:antialias=true:hinting=full:style=Extra Light,xft:Symbola,xft:FontAwesome
+URxvt.font: xft:Input Mono Narrow:size=11:antialias=true:hinting=full:style=Extra Light
 
 ! special
 URxvt*depth: 32
