@@ -9,7 +9,7 @@ Xcursor.size: 48
 ! URxvt
 URxvt.scrollBar: false
 URxvt.perl-ext-common: default,clipboard,url-select
-URxvt.url-select.launcher: firefox
+URxvt.url-select.launcher: firefox-bin
 URxtv.url-select.underline: true
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.keysym.M-s: perl:keyboard-select:search

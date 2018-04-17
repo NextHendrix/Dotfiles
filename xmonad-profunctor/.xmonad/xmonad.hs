@@ -17,8 +17,8 @@ import XMonad.Prompt.Unicode
 import qualified XMonad.StackSet                    as W
 import           XMonad.Util.EZConfig
 import           XMonad.Util.Run               
-import           XMonad.Util.SpawnOnce
-import           XMonad.Wallpaper
+-- import           XMonad.Util.SpawnOnce
+-- import           XMonad.Wallpaper
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.Renamed
@@ -28,7 +28,7 @@ navConf = def {N.layoutNavigation = [("BSP", N.hybridNavigation)]}
 
 main :: IO ()
 main = do
-  setRandomWallpaper ["$HOME/Wallpapers"]
+  -- setRandomWallpaper ["$HOME/Wallpapers"]
   xmproc <- spawnPipe "/usr/bin/xmobar /home/chris/.xmobarrc"
   xmonad $
     N.withNavigation2DConfig navConf $
@@ -69,7 +69,7 @@ main = do
       }
 
 myLayout =
-    renamed [Replace "BSP"] $ smartBorders . avoidStruts $ hiddenWindows $ mkToggle1 NBFULL $ maximize emptyBSP
+    smartBorders . avoidStruts $ hiddenWindows $ mkToggle1 NBFULL $ renamed [Replace "BSP"] $ maximize emptyBSP
 
 launcherConfig :: XPConfig
 launcherConfig =
@@ -144,10 +144,10 @@ myWorkspaces =
   fmap show [5 .. 9 :: Integer]
 
 pBrowser :: String
-pBrowser = "firefox --private-window"
+pBrowser = "firefox-bin --private-window"
 
 browser :: String
-browser = "firefox"
+browser = "firefox-bin"
 
 myTerm :: String
 myTerm = "urxvtc"
