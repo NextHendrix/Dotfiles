@@ -150,4 +150,4 @@ browser :: String
 browser = "firefox-bin"
 
 myTerm :: String
-myTerm = "urxvtc"
+myTerm = "termite"

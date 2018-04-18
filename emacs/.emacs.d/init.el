@@ -51,7 +51,7 @@
  '(jdee-db-spec-breakpoint-face-colors (cons "#0d0d0d" "#5a5b5a"))
  '(package-selected-packages
    (quote
-    (yaml-mode unicode-fonts ace-window erc-hl-nicks erc-colorize doom-themes erc-image auctex auctex-lua counsel ivy magit guru-mode pdf-tools company company-ghc company-ghci haskell-mode flycheck hindent hlint-refactor zenburn-theme sr-speedbar)))
+    (rainbow-mode yaml-mode unicode-fonts ace-window erc-hl-nicks erc-colorize doom-themes erc-image auctex auctex-lua counsel ivy magit guru-mode pdf-tools company company-ghc company-ghci haskell-mode flycheck hindent hlint-refactor zenburn-theme sr-speedbar)))
  '(unicode-fonts-fallback-font-list (quote ("Symbola" "Quivira" "Noto Sans Symbols")))
  '(unicode-fonts-skip-font-groups nil)
  '(vc-annotate-background "#0d0d0d")
