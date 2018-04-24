@@ -14,6 +14,11 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+PATH=~/.local/bin:$PATH
+EDITOR="emacsclient -nw"
+QT_GRAPHICSSYSTEM="native"
+VISUAL="emacsclient -nw";
+
 # Aliases
 alias nmplz="sudo rc-service NetworkManager restart"
 alias svim="sudo -E vim"
