@@ -144,10 +144,10 @@ myWorkspaces =
   fmap show [5 .. 9 :: Integer]
 
 pBrowser :: String
-pBrowser = "firefox-bin --private-window"
+pBrowser = "firefox --private-window"
 
 browser :: String
-browser = "firefox-bin"
+browser = "firefox"
 
 myTerm :: String
-myTerm = "termite"
+myTerm = "konsole"
