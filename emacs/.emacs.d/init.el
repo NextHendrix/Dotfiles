@@ -46,9 +46,6 @@
 (require 'org)
 (setq org-format-latex-options
       (plist-put org-format-latex-options :scale 2.5))
-(add-to-list 'org-latex-packages-alist
-	     '("" "tikz" t))
-(setq org-latex-create-formula-image-program 'imagemagick)
 
 ;; Guru Mode
 (require 'guru-mode)
@@ -88,6 +85,10 @@
 ;; Prog Mode
 (add-hook 'prog-mode-hook 'linum-mode)
 (add-hook 'prog-mode-hook 'prettify-symbols-mode)
+
+;; Python
+(require 'python)
+(setq python-shell-interpreter "python3")
 
 ;; Done!
 (message "Nice one mate")
