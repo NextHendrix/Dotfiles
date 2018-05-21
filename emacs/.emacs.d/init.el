@@ -18,7 +18,8 @@
 	counsel
 	company
 	pdf-tools
-	unicode-fonts))
+	unicode-fonts
+	erc-hl-nicks))
 
 (require 'package)
 (setq package-enable-at-startup t)
@@ -94,6 +95,12 @@
 (require 'python)
 (setq python-shell-interpreter "python3")
 
+;; ERC
+(require 'erc)
+(require 'tls)
+(require 'erc-settings)
+(require 'erc-tex)
+(add-hook 'erc-mode-hook 'erc-tex-enable)
 ;; Done!
 (message "Nice one mate")
 (provide 'init)
@@ -104,7 +111,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (unicode-fonts pdf-tools company counsel ace-window guru-mode flycheck auctex magit))))
+    (erc-hl-nicks unicode-fonts pdf-tools company counsel ace-window guru-mode flycheck auctex magit))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
