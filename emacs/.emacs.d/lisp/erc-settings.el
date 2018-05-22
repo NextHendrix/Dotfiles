@@ -7,7 +7,7 @@
 (require 'erc)
 (require 'erc-hl-nicks)
 (setq erc-nick "nh")
-(setq erc-server "10.8.0.1")
+(setq erc-server "finickitively.co.uk")
 (setq erc-port 5555)
 (setq erc-prompt ">")
 (setq erc-user-full-name "NextHendrix")

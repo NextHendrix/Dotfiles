@@ -101,6 +101,7 @@
 (require 'erc-settings)
 (require 'erc-tex)
 (add-hook 'erc-mode-hook 'erc-tex-enable)
+(setq erc-tex-image-size 2.5)
 ;; Done!
 (message "Nice one mate")
 (provide 'init)

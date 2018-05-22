@@ -84,7 +84,7 @@
                   "\\usepackage{amsmath, amssymb, amsthm}\n"
                   "\\begin{document}\n"
                   "\\par\n"
-                  "$"  math-expression "$"
+                  math-expression
                   "\\end{document}\n"))
 
         (erc-tex-run-latex (concat "-output-directory=" temporary-file-directory) tex-file)
@@ -135,7 +135,8 @@
   (let ((fg (or fg (face-foreground 'default)))
         (bg (or bg (face-background 'default))))
     (goto-char (point-min))
-    (while (re-search-forward "\\$[^$]*\\$" nil t)
+    ;; (while (re-search-forward "\\$[^$]*\\$" nil t)
+    (while (re-search-forward "\\$\\$.*?\\$\\$\\|\\\\\\[.*?\\\\\\]\\|\\$[^$]*\\$\\|\\\\(.*?\\\\)" nil t)
       (let* ((match (match-string-no-properties 0))
              (descp (erc-tex-make-image match fg bg)))
         (when descp
