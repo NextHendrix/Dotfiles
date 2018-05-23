@@ -9,4 +9,4 @@
 [credential]
 	helper = cache
 [core]
-	editor = emacsclient -c
+	editor = emacsclient -nw
