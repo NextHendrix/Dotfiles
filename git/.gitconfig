@@ -9,4 +9,4 @@
 [credential]
 	helper = cache
 [core]
-	editor = vim
+	editor = emacsclient -c

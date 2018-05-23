@@ -2,6 +2,10 @@
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (setq exec-path (append '("~/.local/bin/") exec-path))
 
+;; Custom file
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file 'noerror)
+
 ;; Fuck off with your stupid~ #tmpfiles# bullshit
 (setq backup-directory-alist
       `((".*" . ,temporary-file-directory)))
@@ -19,7 +23,9 @@
 	company
 	pdf-tools
 	unicode-fonts
-	erc-hl-nicks))
+	erc-hl-nicks
+	lua-mode
+	nginx-mode))
 
 (require 'package)
 (setq package-enable-at-startup t)
@@ -102,20 +108,7 @@
 (require 'erc-tex)
 (add-hook 'erc-mode-hook 'erc-tex-enable)
 (setq erc-tex-image-size 2.5)
+
 ;; Done!
 (message "Nice one mate")
 (provide 'init)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (erc-hl-nicks unicode-fonts pdf-tools company counsel ace-window guru-mode flycheck auctex magit))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
