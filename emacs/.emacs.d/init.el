@@ -24,7 +24,6 @@
 	pdf-tools
 	unicode-fonts
 	erc-hl-nicks
-	lua-mode
 	nginx-mode))
 
 (require 'package)
