@@ -1,2 +1,2 @@
 # Dotfiles
-Testing branch-per-machine system
+An absolute state, run `stow <foldername>` to do the thing for each thing.
