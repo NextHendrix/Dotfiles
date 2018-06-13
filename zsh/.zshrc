@@ -20,7 +20,7 @@ QT_GRAPHICSSYSTEM="native"
 VISUAL="emacsclient -nw";
 
 # Aliases
-alias nmplz="sudo systemctl restart NetworkManager"
+alias nmplz="sudo rc-service NetworkManager restart"
 alias svim="sudo -E vim"
 alias e="emacsclient -nw"
 alias E="sudoedit"
