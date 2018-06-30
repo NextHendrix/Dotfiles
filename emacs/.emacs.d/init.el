@@ -24,6 +24,7 @@
 	pdf-tools
 	unicode-fonts
 	erc-hl-nicks
+	haskell-mode
 	nginx-mode))
 
 (require 'package)
