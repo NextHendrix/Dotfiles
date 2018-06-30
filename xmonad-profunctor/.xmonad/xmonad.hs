@@ -3,7 +3,7 @@ import           System.IO
 import           XMonad
 import qualified XMonad.Actions.Navigation2D        as N
 import           XMonad.Hooks.DynamicLog
-import           XMonad.Hooks.EwmhDesktops
+-- import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
 import           XMonad.Hooks.Place
@@ -29,7 +29,7 @@ navConf = def {N.layoutNavigation = [("BSP", N.hybridNavigation)]}
 main :: IO ()
 main = do
   -- setRandomWallpaper ["$HOME/Wallpapers"]
-  xmproc <- spawnPipe "/usr/bin/xmobar /home/chris/.xmobarrc"
+--  xmproc <- spawnPipe "/usr/bin/xmobar /home/chris/.xmobarrc"
   xmonad $
     N.withNavigation2DConfig navConf $
     N.additionalNav2DKeysP
@@ -37,7 +37,7 @@ main = do
       [("M-", N.windowGo), ("M-S-", N.windowSwap)]
       False $
     docks $
-    ewmh $
+   -- ewmh $
     def
       { manageHook =
           placeHook simpleSmart <+>
@@ -48,15 +48,12 @@ main = do
       , startupHook =
           do spawn
                "setxkbmap gb -option compose:ralt && xmodmap ~/.Xmodmap && xset r rate 175 175"
-             spawn "emacs --daemon &"
-             spawn "compton --config=/home/chris/.config/compton/compton.conf &"
-             spawn "urxvtd &"
              spawn "xrdb .Xresources"
       , logHook =
           dynamicLogWithPP
             xmobarPP
-              { ppOutput = hPutStrLn xmproc
-              , ppTitle = xmobarColor "green" "" . shorten 70
+              { --ppOutput = hPutStrLn xmproc
+              ppTitle = xmobarColor "green" "" . shorten 70
               -- , ppExtras = [loadAvg, battery]
               }
       , modMask = mod4Mask -- use windows key
@@ -65,7 +62,7 @@ main = do
       , workspaces = myWorkspaces
       , normalBorderColor = "#000000"
       , focusedBorderColor = "#FFFFFF"
-      , handleEventHook = handleEventHook def <+> fullscreenEventHook
+--      , handleEventHook = handleEventHook def <+> fullscreenEventHook
       }
 
 myLayout =
@@ -124,7 +121,7 @@ myKeys conf =
     , ("M-s", sendMessage Swap)
     , ("M-m", withFocused (sendMessage . maximizeRestore))
     , ("M-S-q", confirmPrompt launcherConfig "exit" $ io exitSuccess)
-    , ("M-u", unicodePrompt launcherConfig)
+  --  , ("M-u", unicodePrompt launcherConfig)
     , ("M-o", withFocused hideWindow)
     , ("M-S-o", popNewestHiddenWindow)
     , ("<Print>", spawn "spectacle")
@@ -147,7 +144,7 @@ pBrowser :: String
 pBrowser = "firefox --private-window"
 
 browser :: String
-browser = "firefox"
+browser = "chromium"
 
 myTerm :: String
-myTerm = "konsole"
+myTerm = "termite"
