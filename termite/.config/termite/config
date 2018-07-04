@@ -4,7 +4,7 @@ font = InputMonoNarrow, ExtraLight 11
 allow_bold = true
 
 [hints]
-font = Input Mono Narrow 12
+font = Input Mono Narrow 11
 foreground = #dcdccc
 background = #3f3f3f
 active_foreground = #e68080

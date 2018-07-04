@@ -3,7 +3,7 @@ import           System.IO
 import           XMonad
 import qualified XMonad.Actions.Navigation2D        as N
 import           XMonad.Hooks.DynamicLog
--- import           XMonad.Hooks.EwmhDesktops
+import           XMonad.Hooks.EwmhDesktops
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
 import           XMonad.Hooks.Place
@@ -37,7 +37,7 @@ main = do
       [("M-", N.windowGo), ("M-S-", N.windowSwap)]
       False $
     docks $
-   -- ewmh $
+    ewmh $
     def
       { manageHook =
           placeHook simpleSmart <+>
@@ -62,7 +62,7 @@ main = do
       , workspaces = myWorkspaces
       , normalBorderColor = "#000000"
       , focusedBorderColor = "#FFFFFF"
---      , handleEventHook = handleEventHook def <+> fullscreenEventHook
+      , handleEventHook = handleEventHook def <+> fullscreenEventHook
       }
 
 myLayout =
