@@ -3,8 +3,7 @@
 Xft.antialias: true
 Xft.hinting: full
 
-Xcursor.theme: gentoo-silver
-Xcursor.size: 32
+Emacs.font: Input Mono Narrow-10:antialias=true:hinting=full
 
 ! URxvt
 URxvt.scrollBar: false
