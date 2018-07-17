@@ -3,7 +3,7 @@
 Xft.antialias: true
 Xft.hinting: full
 
-Emacs.font: Input Mono Narrow-10:antialias=true:hinting=full
+Emacs.font: Input Mono-9:antialias=true:hinting=full
 
 ! URxvt
 URxvt.scrollBar: false
@@ -15,7 +15,7 @@ URxvt.keysym.M-s: perl:keyboard-select:search
 URxvt.cursorBlink: true
 
 ! font
-URxvt.font: xft:Input Mono Narrow:size=11:antialias=true:hinting=full:style=Extra Light,xft:Symbola,xft:FontAwesome
+URxvt.font: xft:Input Mono:size=9:antialias=true:hinting=full
 
 ! special
 URxvt*depth: 32

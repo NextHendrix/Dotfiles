@@ -101,6 +101,10 @@
 (require 'python)
 (setq python-shell-interpreter "python3")
 
+;; Haskell
+(require 'haskell-mode)
+
+
 ;; ERC
 (require 'erc)
 (require 'tls)

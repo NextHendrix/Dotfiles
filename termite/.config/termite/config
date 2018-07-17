@@ -1,6 +1,5 @@
 [options]
-font = Noto Mono 10
-font = InputMonoNarrow 10
+font = Input Mono Narrow 9
 allow_bold = true
 
 [hints]

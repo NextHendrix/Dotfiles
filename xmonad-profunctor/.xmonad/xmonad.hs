@@ -29,7 +29,7 @@ navConf = def {N.layoutNavigation = [("BSP", N.hybridNavigation)]}
 main :: IO ()
 main = do
   -- setRandomWallpaper ["$HOME/Wallpapers"]
---  xmproc <- spawnPipe "/usr/bin/xmobar /home/chris/.xmobarrc"
+  xmproc <- spawnPipe "/usr/bin/xmobar /home/chris/.xmobarrc"
   xmonad $
     N.withNavigation2DConfig navConf $
     N.additionalNav2DKeysP
@@ -52,9 +52,9 @@ main = do
       , logHook =
           dynamicLogWithPP
             xmobarPP
-              { --ppOutput = hPutStrLn xmproc
-              ppTitle = xmobarColor "green" "" . shorten 70
-              -- , ppExtras = [loadAvg, battery]
+              { ppOutput = hPutStrLn xmproc
+              , ppTitle = xmobarColor "green" "" . shorten 70
+        --      , ppExtras = [loadAvg, battery]
               }
       , modMask = mod4Mask -- use windows key
       , terminal = myTerm
@@ -66,14 +66,14 @@ main = do
       }
 
 myLayout =
-    smartBorders . avoidStruts $ hiddenWindows $ mkToggle1 NBFULL $ renamed [Replace "BSP"] $ maximize emptyBSP
+    smartBorders . avoidStruts $ mkToggle1 NBFULL $ renamed [Replace "BSP"] $ maximize emptyBSP
 
 launcherConfig :: XPConfig
 launcherConfig =
   def
-    { font = "xft:Input Sans Narrow:size=10:antialias=true:hinting=full:style=Extra Light"
+    { font = "xft:Input Sans Narrow:size=10:antialias=true:hinting=full"
   -- { font ="xft:Input Mono Narrow:size=10:antialias=true:hinting=full:style=Extra Light,xft:FontAwesome"
-    , height = 38
+    , height = 20 
     , position = Bottom
     }
 
@@ -141,7 +141,7 @@ myWorkspaces =
   fmap show [5 .. 9 :: Integer]
 
 pBrowser :: String
-pBrowser = "firefox --private-window"
+pBrowser = "chromium --incognito"
 
 browser :: String
 browser = "chromium"
