@@ -60,7 +60,7 @@ main = do
       , keys = myKeys
       , workspaces = myWorkspaces
       , normalBorderColor = "#000000"
-      , focusedBorderColor = "#FFFFFF"
+      , focusedBorderColor = "#eeeeee"
       , handleEventHook = handleEventHook def <+> fullscreenEventHook
       }
 
@@ -128,8 +128,8 @@ myKeys conf =
     , ("<XF86AudioRaiseVolume>", spawn "pamixer -u -i 5 --allow-boost")
     , ("<XF86AudioLowerVolume>", spawn "pamixer -d 5 --allow-boost")
     , ("<XF86AudioMute>", spawn "pamixer -t")
-    , ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 10")
-    , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10")
+    , ("<XF86MonBrightnessUp>", spawn "brightnessctl s +10%")
+    , ("<XF86MonBrightnessDown>", spawn "brightnessctl s 10%-")
     ]
 
 editor :: String
