@@ -1,3 +1,6 @@
+;;; init.el --- NextHendrix init
+;;; Commentary:
+;;; Code:
 ;; Set load path for extra stuff
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (setq exec-path (append '("~/.local/bin/") exec-path))
@@ -25,7 +28,8 @@
 	unicode-fonts
 	erc-hl-nicks
 	haskell-mode
-	nginx-mode))
+	nginx-mode
+	nov))
 
 (require 'package)
 (setq package-enable-at-startup t)
@@ -50,9 +54,14 @@
 (setq inhibit-startup-screen t)
 (setq inhibit-startup-echo-area-message "chris")
 
+;; Terminal Mouse Control
+(when (eq window-system nil)
+  (xterm-mouse-mode t))
 ;; Fonts
 (unicode-fonts-setup)
 
+;; Follow Symlinks
+(setq vc-follow-symlinks t)
 ;; Org Mode
 (require 'org)
 (setq org-format-latex-options
@@ -95,7 +104,7 @@
 
 ;; Prog Mode
 (add-hook 'prog-mode-hook 'linum-mode)
-(add-hook 'prog-mode-hook 'prettify-symbols-mode)
+;(add-hook 'prog-mode-hook 'prettify-symbols-mode)
 
 ;; Python
 (require 'python)
@@ -116,3 +125,4 @@
 ;; Done!
 (message "Nice one mate")
 (provide 'init)
+;;; init.el ends here

@@ -3,7 +3,7 @@
 Xft.antialias: true
 Xft.hinting: full
 
-Emacs.font: Input Mono-9:antialias=true:hinting=full
+Emacs.font: Ubuntu Mono-9:antialias=true:hinting=full
 
 ! URxvt
 URxvt.scrollBar: false

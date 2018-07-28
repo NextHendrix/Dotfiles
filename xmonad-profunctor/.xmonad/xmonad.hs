@@ -13,22 +13,19 @@ import           XMonad.Layout.Maximize
 import           XMonad.Layout.NoBorders
 import           XMonad.Prompt
 import           XMonad.Prompt.Shell
-import XMonad.Prompt.Unicode
 import qualified XMonad.StackSet                    as W
 import           XMonad.Util.EZConfig
 import           XMonad.Util.Run               
--- import           XMonad.Util.SpawnOnce
--- import           XMonad.Wallpaper
 import XMonad.Layout.MultiToggle
 import XMonad.Layout.MultiToggle.Instances
 import XMonad.Layout.Renamed
 import XMonad.Prompt.ConfirmPrompt
 
+navConf :: N.Navigation2DConfig
 navConf = def {N.layoutNavigation = [("BSP", N.hybridNavigation)]}
 
 main :: IO ()
 main = do
-  -- setRandomWallpaper ["$HOME/Wallpapers"]
   xmproc <- spawnPipe "/usr/bin/xmobar /home/chris/.xmobarrc"
   xmonad $
     N.withNavigation2DConfig navConf $
@@ -46,9 +43,11 @@ main = do
           (isDialog --> doCenterFloat) <+> manageHook def
       , layoutHook = myLayout
       , startupHook =
-          do spawn
+          do spawn "feh --bg-fill /home/chris/Wallpapers/sik/1483925794872.jpg&"
+             spawn
                "setxkbmap gb -option compose:ralt && xmodmap ~/.Xmodmap && xset r rate 175 175"
              spawn "xrdb .Xresources"
+             spawn "compton --config=/home/chris/.config/compton/compton.conf"
       , logHook =
           dynamicLogWithPP
             xmobarPP
@@ -71,10 +70,11 @@ myLayout =
 launcherConfig :: XPConfig
 launcherConfig =
   def
-    { font = "xft:Input Sans Narrow:size=10:antialias=true:hinting=full"
+    { font = "xft:Ubuntu Mono:size=10:antialias=true:hinting=full"
   -- { font ="xft:Input Mono Narrow:size=10:antialias=true:hinting=full:style=Extra Light,xft:FontAwesome"
     , height = 20 
     , position = Bottom
+    , bgColor = "#000000"
     }
 
 myKeys conf =
@@ -93,7 +93,7 @@ myKeys conf =
     , ("M-t", withFocused $ windows . W.sink)
     , ("M-`", windows $ W.greedyView "Control Centre")
     , ("M-1", windows $ W.greedyView "Home")
-    , ("M-2", windows $ W.greedyView "Emacs")
+    , ("M-2", windows $ W.greedyView "Work")
     , ("M-3", windows $ W.greedyView "Music")
     , ("M-4", windows $ W.greedyView "Steam")
     , ("M-5", windows $ W.greedyView "5")
@@ -103,7 +103,7 @@ myKeys conf =
     , ("M-9", windows $ W.greedyView "9")
     , ("M-S-`", windows $ W.shift "Control Centre")
     , ("M-S-1", windows $ W.shift "Home")
-    , ("M-S-2", windows $ W.shift "Emacs")
+    , ("M-S-2", windows $ W.shift "Work")
     , ("M-S-3", windows $ W.shift "Music")
     , ("M-S-4", windows $ W.shift "Steam")
     , ("M-S-5", windows $ W.shift "5")
@@ -137,14 +137,14 @@ editor = "emacsclient -c"
 
 myWorkspaces :: [String]
 myWorkspaces =
-  ["Control Centre", "Home", "Emacs", "Music", "Steam"] ++
+  ["Control Centre", "Home", "Work", "Music", "Steam"] ++
   fmap show [5 .. 9 :: Integer]
 
 pBrowser :: String
-pBrowser = "chromium --incognito"
+pBrowser = "firefox --private-window"
 
 browser :: String
-browser = "chromium"
+browser = "firefox"
 
 myTerm :: String
-myTerm = "termite"
+myTerm = "gnome-terminal"

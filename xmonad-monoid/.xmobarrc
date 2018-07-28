@@ -1,5 +1,6 @@
 Config
-{ font = "xft:Input Sans Narrow:size=9:antialias=true:hinting=full:style=Extra Light,FontAwesome,Symbola"
+--{ font = "xft:Input Sans Narrow:size=9:antialias=true:hinting=full:style=Extra Light,FontAwesome,Symbola"
+{ font = "xft:Ubuntu Mono:size=10:antialias=true:hinting=full"
 , bgColor = "#000000"
 , fgColor = "#ebdbb2"
 , position = (Bottom)
@@ -19,10 +20,10 @@ Config
 	    "-h", "green",
 	    "-l", "red"
       ] 50
-    , Run Volume "default" "Master" [] 1
+--    , Run Volume "default" "Master" [] 1
     , Run Wireless "wlp2s0" ["-t", "<essid> <quality>"] 10 ]
   , sepChar = "%"
   , alignSep = "}{"
   , template =
-    "%StdinReader% }{ %wlp2s0wi% | %multicpu% | %memory% | %swap% | %default:Master% | %battery%  <fc=#d79922>%date%</fc>"
+    "%StdinReader% }{ %wlp2s0wi% | %multicpu% | %memory% | %swap% | %battery%  <fc=#d79922>%date%</fc>"
 }
