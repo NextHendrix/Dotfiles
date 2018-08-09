@@ -24,9 +24,6 @@
 	ace-window
 	counsel
 	company
-	pdf-tools
-	unicode-fonts
-	erc-hl-nicks
 	haskell-mode
 	nginx-mode
 	nov))
@@ -57,11 +54,10 @@
 ;; Terminal Mouse Control
 (when (eq window-system nil)
   (xterm-mouse-mode t))
-;; Fonts
-(unicode-fonts-setup)
 
 ;; Follow Symlinks
 (setq vc-follow-symlinks t)
+
 ;; Org Mode
 (require 'org)
 (setq org-format-latex-options
@@ -96,14 +92,14 @@
 (setq flycheck-global-modes t)
 
 ;; PDF Tools
-(require 'pdf-tools)
-(pdf-tools-install)
-(setq pdf-view-use-imagemagick t)
-(setq pdf-view-use-dedicated-register t)
-(setq pdf-view-use-scaling t)
+;; (require 'pdf-tools)
+;;(pdf-tools-install)
+;(setq pdf-view-use-imagemagick t)
+;(setq pdf-view-use-dedicated-register t)
+;(setq pdf-view-use-scaling t)
 
 ;; Prog Mode
-(add-hook 'prog-mode-hook 'linum-mode)
+;(add-hook 'prog-mode-hook 'linum-mode)
 ;(add-hook 'prog-mode-hook 'prettify-symbols-mode)
 
 ;; Python
@@ -115,9 +111,9 @@
 
 
 ;; ERC
-(require 'erc)
-(require 'tls)
-(require 'erc-settings)
+;(require 'erc)
+;(require 'tls)
+;(require 'erc-settings)
 ;; (require 'erc-tex)
 ;; (add-hook 'erc-mode-hook 'erc-tex-enable)
 ;; (setq erc-tex-image-size 2.5)
