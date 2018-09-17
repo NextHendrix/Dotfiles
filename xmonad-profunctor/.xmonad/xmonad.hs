@@ -147,4 +147,4 @@ browser :: String
 browser = "firefox"
 
 myTerm :: String
-myTerm = "gnome-terminal"
+myTerm = "konsole"

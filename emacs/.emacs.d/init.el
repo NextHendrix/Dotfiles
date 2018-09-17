@@ -26,7 +26,9 @@
 	company
 	haskell-mode
 	nginx-mode
-	nov))
+	nov
+	pdf-tools
+	))
 
 (require 'package)
 (setq package-enable-at-startup t)
@@ -77,6 +79,7 @@
 (global-set-key (kbd "C-s") 'swiper)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
+(setq ivy-count-format "%d/%d ")
 
 ;; IBuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -92,11 +95,11 @@
 (setq flycheck-global-modes t)
 
 ;; PDF Tools
-;; (require 'pdf-tools)
-;;(pdf-tools-install)
-;(setq pdf-view-use-imagemagick t)
-;(setq pdf-view-use-dedicated-register t)
-;(setq pdf-view-use-scaling t)
+(require 'pdf-tools)
+(pdf-tools-install)
+(setq pdf-view-use-imagemagick t)
+(setq pdf-view-use-dedicated-register t)
+(setq pdf-view-use-scaling t)
 
 ;; Prog Mode
 ;(add-hook 'prog-mode-hook 'linum-mode)
@@ -108,6 +111,11 @@
 
 ;; Haskell
 (require 'haskell-mode)
+(require 'lsp-ui)
+(require 'lsp-haskell)
+(add-hook 'lsp-mode-hook 'lsp-ui-mode)
+(add-hook 'haskell-mode-hook #'lsp-haskell-enable)
+(add-hook 'haskell-mode-hook 'flycheck-mode)
 
 
 ;; ERC

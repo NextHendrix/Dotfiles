@@ -20,10 +20,9 @@ Config
 	    "-h", "green",
 	    "-l", "red"
       ] 50
---    , Run Volume "default" "Master" [] 1
-    , Run Wireless "wlp2s0" ["-t", "<essid> <quality>"] 10 ]
-  , sepChar = "%"
-  , alignSep = "}{"
-  , template =
+    , Run Wireless "wlp2s0" ["-t", "<essid> <quality>"] 10]
+, sepChar = "%"
+, alignSep = "}{"
+, template =
     "%StdinReader% }{ %wlp2s0wi% | %multicpu% | %memory% | %swap% | %battery%  <fc=#d79922>%date%</fc>"
 }
