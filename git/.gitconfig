@@ -10,5 +10,3 @@
 	helper = cache
 [core]
 	editor = emacsclient -nw
-[github]
-	user = three
