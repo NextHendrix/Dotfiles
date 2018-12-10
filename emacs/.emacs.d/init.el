@@ -100,6 +100,7 @@
 (setq pdf-view-use-imagemagick t)
 (setq pdf-view-use-dedicated-register t)
 (setq pdf-view-use-scaling t)
+(add-hook 'pdf-view-mode-hook 'auto-revert-mode)
 
 ;; Prog Mode
 ;(add-hook 'prog-mode-hook 'linum-mode)
