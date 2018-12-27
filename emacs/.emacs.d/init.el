@@ -18,6 +18,7 @@
 ;; Package memery
 (setq package-list
       '(magit
+	nlinum
 	auctex
 	flycheck
 	guru-mode
@@ -50,6 +51,7 @@
 (column-number-mode t)
 (show-paren-mode t)
 (display-time-mode t)
+(global-visual-line-mode)
 (setq inhibit-startup-screen t)
 (setq inhibit-startup-echo-area-message "chris")
 
@@ -103,7 +105,7 @@
 (add-hook 'pdf-view-mode-hook 'auto-revert-mode)
 
 ;; Prog Mode
-;(add-hook 'prog-mode-hook 'linum-mode)
+(add-hook 'prog-mode-hook 'nlinum-mode)
 ;(add-hook 'prog-mode-hook 'prettify-symbols-mode)
 
 ;; Python
@@ -113,6 +115,16 @@
 ;; Haskell
 (require 'haskell-mode)
 (add-hook 'haskell-mode-hook 'flycheck-mode)
+
+;; RCIRC
+(require 'rcirc)
+(setq rcirc-server-alist
+      '(("finickitively.co.uk"
+	 :port 6697
+	 :encryption tls
+	 :nick "nh"
+	 :user-name "NextHendrix"
+	 :full-name "NextHendrix")))
 
 
 ;; ERC
