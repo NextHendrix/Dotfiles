@@ -49,6 +49,13 @@
   :init
   (global-flycheck-mode))
 
+;; Company
+(use-package company
+  :ensure t
+  :commands global-company-mode
+  :init
+  (global-company-mode))
+
 ;; Guru Mode
 (use-package guru-mode
   :ensure t
@@ -66,8 +73,29 @@
 	   :port 6697
 	   :encryption tls))))
 
+;; Swiper
+(use-package swiper
+  :ensure t
+  :bind ("C-s" . swiper))
+
+;; Ace Window
+(use-package ace-window
+  :ensure t
+  :bind ("C-x o" . ace-window))
 ;; Magit
 (use-package magit
   :ensure t)
-;; Done!
+
+;; IBuffer
+(use-package ibuffer
+  :bind ("C-x C-b" . ibuffer))
+
+;; Smex
+(use-package smex
+  :ensure t
+  :bind (("M-x" . smex)
+	 ("M-X" . smex-major-mode-commands)
+	 ("C-c C-c M-x" . execute-extended-command)))
+
+  ;; Done!
 (message "Nice one mate")
