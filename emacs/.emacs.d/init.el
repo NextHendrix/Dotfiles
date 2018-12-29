@@ -49,6 +49,12 @@
   :init
   (global-flycheck-mode))
 
+;; PDF Tools
+(use-package pdf-tools
+  :ensure t
+  :init
+  (pdf-tools-install))
+
 ;; Company
 (use-package company
   :ensure t
@@ -82,6 +88,7 @@
 (use-package ace-window
   :ensure t
   :bind ("C-x o" . ace-window))
+
 ;; Magit
 (use-package magit
   :ensure t)
