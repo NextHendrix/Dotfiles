@@ -104,5 +104,27 @@
 	 ("M-X" . smex-major-mode-commands)
 	 ("C-c C-c M-x" . execute-extended-command)))
 
-  ;; Done!
+;; Elpy
+(use-package elpy
+  :ensure t
+  :init
+  (elpy-enable)
+  (setq elpy-rpc-python-command "python3")
+  (setq python-shell-interpreter "python3"))
+
+;; Projectile
+(use-package projectile
+  :ensure t
+  :init
+  (projectile-mode t)
+  :bind (("s-p" . projectile-command-map)
+	 ("C-c p" . projectile-command-map)))
+
+;; Multiple Cursors
+(use-package multiple-cursors
+  :ensure t
+  :bind ("C-c m c" . mc/edit-lines))
+
+;; Done!
 (message "Nice one mate")
+(provide 'init)
