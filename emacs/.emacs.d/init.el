@@ -42,12 +42,23 @@
   (package-install 'use-package))
 (require 'use-package)
 
+;; Stop clobbering the theme
+(defun load-custom-theme (frame)
+  "Don't clobber the theme without a FRAME please lads."
+  (select-frame frame)
+  (load-theme 'wombat nil))
+(if (daemonp)
+    (add-hook 'after-make-frame-functions #'load-custom-theme)
+  (load-theme 'wombat t))
+
 ;; Flycheck
 (use-package flycheck
   :ensure t
   :commands global-flycheck-mode
   :init
-  (global-flycheck-mode))
+  (global-flycheck-mode)
+  :config
+  (setq flycheck-gnat-include-path '(".")))
 
 ;; PDF Tools
 (use-package pdf-tools
@@ -75,7 +86,7 @@
   :commands irc
   :config
   (setq rcirc-server-alist
-	'(("finickitively.co.uk"
+	'(("withselect.co.uk"
 	   :port 6697
 	   :encryption tls))))
 
