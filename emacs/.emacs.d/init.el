@@ -46,10 +46,10 @@
 (defun load-custom-theme (frame)
   "Don't clobber the theme without a FRAME please lads."
   (select-frame frame)
-  (load-theme 'wombat nil))
+  (load-theme 'twilight-bright nil))
 (if (daemonp)
     (add-hook 'after-make-frame-functions #'load-custom-theme)
-  (load-theme 'wombat t))
+  (load-theme 'twilight-bright t))
 
 ;; Flycheck
 (use-package flycheck
