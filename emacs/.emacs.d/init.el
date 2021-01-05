@@ -42,6 +42,9 @@
   (package-install 'use-package))
 (require 'use-package)
 
+;; Dank themes
+(use-package twilight-bright-theme
+  :ensure t)
 ;; Stop clobbering the theme
 (defun load-custom-theme (frame)
   "Don't clobber the theme without a FRAME please lads."
