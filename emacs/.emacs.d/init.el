@@ -147,6 +147,8 @@
   (require 'smartparens-config)
   (smartparens-global-mode))
 
+;; Fix window focus on KDE
+(add-hook 'after-make-frame-functions 'select-frame-set-input-focus)
 
 ;; Done!
 (message "Nice one mate")
