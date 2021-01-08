@@ -63,12 +63,6 @@
   :config
   (setq flycheck-gnat-include-path '(".")))
 
-;; PDF Tools
-(use-package pdf-tools
-  :ensure t
-  :init
-  (pdf-tools-install))
-
 ;; Company
 (use-package company
   :ensure t
@@ -82,16 +76,6 @@
   :commands guru-global-mode
   :init
   (guru-global-mode))
-
-;; RCIRC
-(use-package rcirc
-  :ensure t
-  :commands irc
-  :config
-  (setq rcirc-server-alist
-	'(("withselect.co.uk"
-	   :port 6697
-	   :encryption tls))))
 
 ;; Swiper
 (use-package swiper
