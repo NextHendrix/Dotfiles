@@ -54,6 +54,9 @@
     (add-hook 'after-make-frame-functions #'load-custom-theme)
   (load-theme 'twilight-bright t))
 
+;; Electric Pair Mode
+(add-hook 'text-mode-hook 'electric-pair-mode)
+
 ;; Flycheck
 (use-package flycheck
   :ensure t
