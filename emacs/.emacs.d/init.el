@@ -126,14 +126,6 @@
   :ensure t
   :bind ("C-c m c" . mc/edit-lines))
 
-
-;; Smartparens
-(use-package smartparens
-  :ensure t
-  :init
-  (require 'smartparens-config)
-  (smartparens-global-mode))
-
 ;; Fix window focus on KDE
 (add-hook 'after-make-frame-functions 'select-frame-set-input-focus)
 
