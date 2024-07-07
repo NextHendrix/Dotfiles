@@ -1,7 +1,7 @@
 [user]
 	name = Christopher Jones
 	email = chris.jones.492@gmail.com
-	signingkey = E57BAF4AFDF6CAB0CCE0B7A1CF8CDAF4666FC4D4
+	signingkey = 497C692FEB521C27
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
@@ -13,3 +13,5 @@
 	editor = emacsclient -nw
 [commit]
 	gpgsign = true
+[init]
+	defaultBranch = master
